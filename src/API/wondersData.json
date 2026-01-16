@@ -1,0 +1,76 @@
+[
+  {
+    "img": "https://images.pexels.com/photos/17615498/pexels-photo-17615498.jpeg?_gl=1*r0dbp6*_ga*NTcyODU1MDE4LjE3NTg5NDQ4MTk.*_ga_8JE65Q40S6*czE3NTg5NDQ4MTkkbzEkZzEkdDE3NTg5NDU5ODckajYwJGwwJGgw",
+    "title": "1. Great Wall of China (China)",
+    "p1": "Length: ~21,196 km (longest wall in the world).",
+    "p2": "Built to protect China from Mongol invasions.",
+    "p3": "Took around 2,000 years to complete (7th century BC → 17th century AD).",
+    "p4": "Made of stone, brick, wood, and earth.",
+    "p5": "Popular myth: visible from space (not true with the naked eye).",
+    "visit":"https://en.wikipedia.org/wiki/Great_Wall_of_China"
+  },
+  {
+    "img": "https://images.pexels.com/photos/23124659/pexels-photo-23124659.jpeg?_gl=1*1j7xo9v*_ga*NTcyODU1MDE4LjE3NTg5NDQ4MTk.*_ga_8JE65Q40S6*czE3NTg5NDQ4MTkkbzEkZzEkdDE3NTg5NDY0MjQkajkkbDAkaDA.",
+    "title": "2. Petra (Jordan)",
+    "p1": "Known as the “Rose City” for its pink sandstone cliffs.",
+    "p2": "Built by the Nabataeans (Arab tribe).",
+    "p3": "Famous site: Al-Khazneh (The Treasury), carved into rock.",
+    "p4": "Advanced water system engineering in the desert.",
+    "p5": "Rediscovered in 1812 by Swiss explorer Johann Burckhardt.",
+    "visit": "https://en.wikipedia.org/wiki/Petra"
+  },
+  {
+    "img": "https://images.pexels.com/photos/13911606/pexels-photo-13911606.jpeg?_gl=1*17lsgr6*_ga*NTcyODU1MDE4LjE3NTg5NDQ4MTk.*_ga_8JE65Q40S6*czE3NTg5NDQ4MTkkbzEkZzEkdDE3NTg5NDY5MTYkajUkbDAkaDA.",
+    "title": "3. Christ the Redeemer (Brazil)",
+    "p1": "Height: 30 m (98 ft), arm span: 28 m.",
+    "p2": "Built between 1922–1931 in Rio de Janeiro, on Corcovado Mountain.",
+    "p3": "Made of reinforced concrete + soapstone.",
+    "p4": "Gets struck by lightning often; repairs are common.",
+    "p5": "Symbol of Christianity, peace, and Brazilian culture.",
+    "visit": "https://en.wikipedia.org/wiki/Christ_the_Redeemer_(statue)"
+  },
+
+  {
+    "img": "https://images.pexels.com/photos/5503219/pexels-photo-5503219.jpeg?_gl=1*1rxxm8u*_ga*NTcyODU1MDE4LjE3NTg5NDQ4MTk.*_ga_8JE65Q40S6*czE3NTg5NDQ4MTkkbzEkZzEkdDE3NTg5NDcwOTIkajU5JGwwJGgw",
+    "title": "4. Machu Picchu (Peru)",
+    "p1": "Built by the Inca civilization in the 15th century.",
+    "p2": "Located in the Andes Mountains (2,430 m above sea level).",
+    "p3": "Rediscovered in 1911 by Hiram Bingham. ",
+    "p4": "Stones are perfectly cut without cement, making it earthquake-proof.",
+    "p5": "Remained hidden during the Spanish conquest, so it’s well preserved.",
+    "visit": "https://en.wikipedia.org/wiki/Machu_Picchu"
+  },
+
+  {
+    "img": "https://images.pexels.com/photos/11801485/pexels-photo-11801485.jpeg?_gl=1*1khobr8*_ga*NTcyODU1MDE4LjE3NTg5NDQ4MTk.*_ga_8JE65Q40S6*czE3NTg5NDQ4MTkkbzEkZzEkdDE3NTg5NDcxODMkajU5JGwwJGgw",
+    "title": "5. Chichen Itza (Mexico)",
+    "p1": "Ancient Mayan city (600–1200 AD).",
+    "p2": "Famous pyramid: El Castillo (Temple of Kukulcán) with 365 steps = days in a year.",
+    "p3": "During equinox, the shadow forms a serpent crawling down the pyramid.",
+    "p4": "Shows the Mayans’ advanced knowledge of astronomy and mathematics.",
+    "p5": "Symbolizing the Mayan feathered serpent god, Kukulcán..",
+    "visit": "https://en.wikipedia.org/wiki/Chichen_Itza?wprov=srpw1_0"
+  },
+
+  {
+    "img": " https://images.pexels.com/photos/2064827/pexels-photo-2064827.jpeg?_gl=1*lo0cjr*_ga*NTcyODU1MDE4LjE3NTg5NDQ4MTk.*_ga_8JE65Q40S6*czE3NTg5NDQ4MTkkbzEkZzEkdDE3NTg5NDcyNjYkajU5JGwwJGgw",
+    "title": "6. Roman Colosseum (Italy)",
+    "p1": "Built in Rome between 70–80 AD.",
+    "p2": "Capacity: 50,000–80,000 spectators.",
+    "p3": "Used for gladiator battles, animal hunts, and dramas.",
+    "p4": "Made with stone + concrete (revolutionary at that time).",
+    "p5": "Still inspires modern stadium design.",
+    "visit": "https://en.wikipedia.org/wiki/Colosseum"
+  },
+
+  {
+    "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Taj_Mahal_%28Edited%29.jpeg/1280px-Taj_Mahal_%28Edited%29.jpeg",
+    "title": "7. Taj Mahal (India)",
+    "p1": "Made of white marble + precious stones (jade, sapphire, turquoise, etc.).",
+    "p2": "Built to protect China from Mongol invasions.",
+    "p3": "Declared a UNESCO World Heritage Site in 1983.",
+    "p4": "Changes color with time of day: pink (morning), white (afternoon), golden (night).",
+    "p5": "Famous as the “symbol of eternal love.”",
+    "visit": "https://en.wikipedia.org/wiki/Taj_Mahal"
+  }
+]

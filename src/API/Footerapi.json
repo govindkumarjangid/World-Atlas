@@ -1,0 +1,17 @@
+[
+    {
+        "icon": "MdOutlinePlace",
+        "title": "Find us",
+        "deatils": "jaipur,India"
+    },
+    {
+        "icon": "IoCallSharp",
+        "title": "Call Us",
+        "deatils": 7073904473
+    },
+    {
+        "icon": "TbMailPlus",
+        "title": "Mail Us",
+        "deatils": "govindjangid17@gmail.com"
+    }
+]

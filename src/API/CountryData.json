@@ -1,0 +1,72 @@
+[
+    {
+        "id": 1,
+        "countryName": "Japan",
+        "capital": "Tokyo",
+        "population": 125800000,
+        "interestingFact": "Japan is known for its rich culture, technology, and innovation. Surprisingly, the country has more pets than children, showing a major societal."
+    },
+    {
+        "id": 2,
+        "countryName": "Canada",
+        "capital": "Ottawa",
+        "population": 39000000,
+        "interestingFact": "Canada has the world's longest coastline and over two million lakes, covering about 9% of its total land area, making it incredibly water-rich."
+    },
+    {
+        "id": 3,
+        "countryName": "India",
+        "capital": "New Delhi",
+        "population": 1417000000,
+        "interestingFact": "India is the world’s largest democracy, with a rich cultural heritage, over 22 official languages, and is the birthplace of four major world religions."
+    },
+    {
+        "id": 4,
+        "countryName": "Brazil",
+        "capital": "Brasília",
+        "population": 216000000,
+        "interestingFact": "Brazil is home to the Amazon Rainforest, which hosts nearly 10% of the world’s known species and plays a vital role in Earth’s oxygen supply."
+    },
+    {
+        "id": 5,
+        "countryName": "Australia",
+        "capital": "Canberra",
+        "population": 27000000,
+        "interestingFact": "Australia has no active volcanoes and is famous for its unique wildlife. Around 90% of its species are found nowhere else in the world."
+    },
+    {
+        "id": 6,
+        "countryName": "Egypt",
+        "capital": "Cairo",
+        "population": 110000000,
+        "interestingFact": "Egypt is home to the Great Pyramid of Giza, the only surviving ancient wonder. It played a key role in early science, math, and medicine."
+    },
+    {
+        "id": 7,
+        "countryName": "Russia",
+        "capital": "Moscow",
+        "population": 143000000,
+        "interestingFact": "Russia is the largest country by land area and spans across 11 time zones. It also contains the world’s deepest freshwater lake, Lake Baikal."
+    },
+    {
+        "id": 8,
+        "countryName": "Iceland",
+        "capital": "Reykjavik",
+        "population": 375000,
+        "interestingFact": "Iceland uses nearly 100% renewable energy and has no mosquitoes. Its unique climate and create one of the cleanest environments on Earth."
+    },
+    {
+        "id": 9,
+        "countryName": "South Korea",
+        "capital": "Seoul",
+        "population": 52000000,
+        "interestingFact": "South Korea leads in internet speed and tech innovation. It has a thriving pop culture industry and one of the highest education levels globally."
+    },
+    {
+        "id": 10,
+        "countryName": "Switzerland",
+        "capital": "Bern",
+        "population": 8900000,
+        "interestingFact": "Switzerland has four national languages, is famous for neutrality, and is home to many global organizations including the Red Cross and parts of the UN."
+    }
+]
