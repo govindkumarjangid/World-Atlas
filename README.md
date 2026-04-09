@@ -1,4 +1,4 @@
-# Ìºç World Atlas Explorer
+# World Atlas Explorer
 
 ![React](https://img.shields.io/badge/react-19-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 ![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
@@ -7,7 +7,7 @@
 
 A modern, highly interactive web application built with **React** and **Tailwind CSS**. It allows users to explore detailed information about every country in the world, marvel at the Seven Wonders of the World, analyze the Top 10 Global Economies, and explore a Live HD World Map. The application utilizes the **REST Countries API** for dynamic data fetching.
 
-> **Live Demo:** [Insert Live Link Here] \(e.g., Vercel, Netlify)
+> **Live Demo:** [https://world-atlas-tan.vercel.app/](https://world-atlas-tan.vercel.app/)
 
 ---
 
@@ -24,7 +24,7 @@ A modern, highly interactive web application built with **React** and **Tailwind
 
 ---
 
-## Ìª†Ô∏è Technologies Used
+## Technologies Used
 
 - **Frontend Framework:** React 19 (Vite + SWC)
 - **Styling:** Tailwind CSS & Custom CSS
@@ -37,7 +37,7 @@ A modern, highly interactive web application built with **React** and **Tailwind
 
 ---
 
-## Ì≥Ç Folder Structure
+## Folder Structure
 
 ```text
 World-Atlas/
@@ -59,7 +59,7 @@ World-Atlas/
 
 ---
 
-## Ì∫Ä Installation & Setup
+## Installation & Setup
 
 Follow these steps to get the project running locally on your machine:
 
@@ -88,7 +88,7 @@ Navigate to `http://localhost:5173` (or the port provided in your terminal) to e
 
 ---
 
-## Ì≥ñ Usage
+## Usage
 
 - **Home:** Gives a quick overview and showcases the Seven Wonders of the World.
 - **About:** Displays the Top 10 World Economies with up-to-date data.
@@ -98,19 +98,4 @@ Navigate to `http://localhost:5173` (or the port provided in your terminal) to e
 
 ---
 
-## Ì¥ù Contributing
 
-Contributions, issues, and feature requests are welcome! 
-Feel free to check the issues page if you want to contribute.
-
-1. Fork the Project.
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`).
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`).
-4. Push to the Branch (`git push origin feature/AmazingFeature`).
-5. Open a Pull Request.
-
----
-
-## Ì≥ú License
-
-Distributed under the MIT License. See `LICENSE` for more information.
