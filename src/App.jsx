@@ -1,11 +1,11 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { AppLayout } from "./Components/Layout/AppLayout";
-import "./App.css";
-import "./Responsive.css";
 import { Home } from "./Pages/Home";
 import { About } from "./Pages/About";
 import { Country } from "./Pages/Country";
 import { Contact } from "./Pages/Contact";
+import MapPage from "./Pages/MapPage";
+import { WonderDetails } from "./Pages/WonderDetails";
 import { Errorpage } from "./Components/UI/ErrorPage";
 import { CountryDetails } from "./Components/Layout/CountryDetails";
 
@@ -32,6 +32,14 @@ const router = createBrowserRouter([
       {
         path: "/country/:id",
         element: <CountryDetails />
+      },
+      {
+        path: "/wonders/:id",
+        element: <WonderDetails />
+      },
+      {
+        path: "/map",
+        element: <MapPage />
       },
       {
         path: "/contact",

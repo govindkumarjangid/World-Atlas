@@ -1,72 +1,102 @@
 [
     {
         "id": 1,
-        "countryName": "Japan",
-        "capital": "Tokyo",
-        "population": 125800000,
-        "interestingFact": "Japan is known for its rich culture, technology, and innovation. Surprisingly, the country has more pets than children, showing a major societal."
+        "countryName": "United States",
+        "capital": "Washington, D.C.",
+        "population": 341814895,
+        "gdp": "$28.78 Trillion",
+        "currency": "US Dollar (USD)",
+        "language": "English",
+        "interestingFact": "The USA has the largest economy in the world and leads globally in technological innovation, entertainment, and financial markets."
     },
     {
         "id": 2,
-        "countryName": "Canada",
-        "capital": "Ottawa",
-        "population": 39000000,
-        "interestingFact": "Canada has the world's longest coastline and over two million lakes, covering about 9% of its total land area, making it incredibly water-rich."
+        "countryName": "China",
+        "capital": "Beijing",
+        "population": 1409670000,
+        "gdp": "$18.53 Trillion",
+        "currency": "Renminbi (CNY)",
+        "language": "Mandarin",
+        "interestingFact": "China is the world's manufacturing hub and the most populous country, featuring a rapidly growing tech sector and the historic Great Wall."
     },
     {
         "id": 3,
-        "countryName": "India",
-        "capital": "New Delhi",
-        "population": 1417000000,
-        "interestingFact": "India is the world’s largest democracy, with a rich cultural heritage, over 22 official languages, and is the birthplace of four major world religions."
+        "countryName": "Germany",
+        "capital": "Berlin",
+        "population": 84482000,
+        "gdp": "$4.59 Trillion",
+        "currency": "Euro (EUR)",
+        "language": "German",
+        "interestingFact": "Germany is Europe's largest economy, famous for its high-quality automotive industry, precision engineering, and the Autobahn network."
     },
     {
         "id": 4,
-        "countryName": "Brazil",
-        "capital": "Brasília",
-        "population": 216000000,
-        "interestingFact": "Brazil is home to the Amazon Rainforest, which hosts nearly 10% of the world’s known species and plays a vital role in Earth’s oxygen supply."
+        "countryName": "Japan",
+        "capital": "Tokyo",
+        "population": 123850000,
+        "gdp": "$4.11 Trillion",
+        "currency": "Japanese Yen (JPY)",
+        "language": "Japanese",
+        "interestingFact": "Japan seamlessly blends advanced modern technology with deep traditional culture. It is known for its robotics, electronics, and anime."
     },
     {
         "id": 5,
-        "countryName": "Australia",
-        "capital": "Canberra",
-        "population": 27000000,
-        "interestingFact": "Australia has no active volcanoes and is famous for its unique wildlife. Around 90% of its species are found nowhere else in the world."
+        "countryName": "India",
+        "capital": "New Delhi",
+        "population": 1441719852,
+        "gdp": "$3.94 Trillion",
+        "currency": "Indian Rupee (INR)",
+        "language": "Hindi / English",
+        "interestingFact": "India is the fastest-growing major economy and the world's largest democracy, fueled by an exploding IT sector and massive domestic market."
     },
     {
         "id": 6,
-        "countryName": "Egypt",
-        "capital": "Cairo",
-        "population": 110000000,
-        "interestingFact": "Egypt is home to the Great Pyramid of Giza, the only surviving ancient wonder. It played a key role in early science, math, and medicine."
+        "countryName": "United Kingdom",
+        "capital": "London",
+        "population": 68350000,
+        "gdp": "$3.50 Trillion",
+        "currency": "Pound Sterling (GBP)",
+        "language": "English",
+        "interestingFact": "The UK continues to be a major global financial center and has massive soft-power influence globally through education, sports, and media."
     },
     {
         "id": 7,
-        "countryName": "Russia",
-        "capital": "Moscow",
-        "population": 143000000,
-        "interestingFact": "Russia is the largest country by land area and spans across 11 time zones. It also contains the world’s deepest freshwater lake, Lake Baikal."
+        "countryName": "France",
+        "capital": "Paris",
+        "population": 68200000,
+        "gdp": "$3.13 Trillion",
+        "currency": "Euro (EUR)",
+        "language": "French",
+        "interestingFact": "France is the most visited country in the world and dominates global markets in aerospace, luxury goods, cosmetics, and culinary arts."
     },
     {
         "id": 8,
-        "countryName": "Iceland",
-        "capital": "Reykjavik",
-        "population": 375000,
-        "interestingFact": "Iceland uses nearly 100% renewable energy and has no mosquitoes. Its unique climate and create one of the cleanest environments on Earth."
+        "countryName": "Brazil",
+        "capital": "Brasília",
+        "population": 217632000,
+        "gdp": "$2.33 Trillion",
+        "currency": "Brazilian Real (BRL)",
+        "language": "Portuguese",
+        "interestingFact": "Brazil is Latin America's top economic powerhouse. It holds massive agricultural exports and plays a critical role in global climate balance."
     },
     {
         "id": 9,
-        "countryName": "South Korea",
-        "capital": "Seoul",
-        "population": 52000000,
-        "interestingFact": "South Korea leads in internet speed and tech innovation. It has a thriving pop culture industry and one of the highest education levels globally."
+        "countryName": "Italy",
+        "capital": "Rome",
+        "population": 58700000,
+        "gdp": "$2.33 Trillion",
+        "currency": "Euro (EUR)",
+        "language": "Italian",
+        "interestingFact": "Italy has the most UNESCO World Heritage Sites globally and is renowned for its high-end fashion, exotic supercars, and culinary influence."
     },
     {
         "id": 10,
-        "countryName": "Switzerland",
-        "capital": "Bern",
-        "population": 8900000,
-        "interestingFact": "Switzerland has four national languages, is famous for neutrality, and is home to many global organizations including the Red Cross and parts of the UN."
+        "countryName": "Canada",
+        "capital": "Ottawa",
+        "population": 41200000,
+        "gdp": "$2.24 Trillion",
+        "currency": "Canadian Dollar (CAD)",
+        "language": "English / French",
+        "interestingFact": "Canada is extremely rich in natural resources, ranking among the highest globally in standard of living and high-tech manufacturing."
     }
 ]
