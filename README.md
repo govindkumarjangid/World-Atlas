@@ -1,6 +1,13 @@
-#  World Atlas Explorer
+# Ìºç World Atlas Explorer
+
+![React](https://img.shields.io/badge/react-19-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
 
 A modern, highly interactive web application built with **React** and **Tailwind CSS**. It allows users to explore detailed information about every country in the world, marvel at the Seven Wonders of the World, analyze the Top 10 Global Economies, and explore a Live HD World Map. The application utilizes the **REST Countries API** for dynamic data fetching.
+
+> **Live Demo:** [Insert Live Link Here] \(e.g., Vercel, Netlify)
 
 ---
 
@@ -17,11 +24,11 @@ A modern, highly interactive web application built with **React** and **Tailwind
 
 ---
 
-## Technologies Used
+## Ìª†Ô∏è Technologies Used
 
-- **Frontend Framework:** React 18 (Vite)
+- **Frontend Framework:** React 19 (Vite + SWC)
 - **Styling:** Tailwind CSS & Custom CSS
-- **Routing:** React Router v6
+- **Routing:** React Router v7
 - **Animations:** Framer Motion
 - **Icons:** Lucide React
 - **HTTP Client:** Axios
@@ -30,11 +37,11 @@ A modern, highly interactive web application built with **React** and **Tailwind
 
 ---
 
-##  Folder Structure
+## Ì≥Ç Folder Structure
 
 ```text
 World-Atlas/
-‚îú‚îÄ‚îÄ public/                 # Static assets
+‚îú‚îÄ‚îÄ public/                 # Static assets (images, fonts, etc.)
 ‚îú‚îÄ‚îÄ src/
 ‚îÇ   ‚îú‚îÄ‚îÄ API/                # Axios routing and Local JSON data (wondersData, CountryData)
 ‚îÇ   ‚îú‚îÄ‚îÄ Components/
@@ -52,7 +59,7 @@ World-Atlas/
 
 ---
 
-## Installation & Setup
+## Ì∫Ä Installation & Setup
 
 Follow these steps to get the project running locally on your machine:
 
@@ -65,11 +72,15 @@ cd World-Atlas
 **2. Install dependencies**
 ```bash
 npm install
+# or
+yarn install
 ```
 
 **3. Start the development server**
 ```bash
 npm run dev
+# or
+yarn dev
 ```
 
 **4. Open in browser**
@@ -77,7 +88,7 @@ Navigate to `http://localhost:5173` (or the port provided in your terminal) to e
 
 ---
 
-## Usage
+## Ì≥ñ Usage
 
 - **Home:** Gives a quick overview and showcases the Seven Wonders of the World.
 - **About:** Displays the Top 10 World Economies with up-to-date data.
@@ -85,3 +96,21 @@ Navigate to `http://localhost:5173` (or the port provided in your terminal) to e
 - **Live Map:** Check the full HD satellite view of the earth.
 - **Contact:** Send a message or inquiry via the integrated contact form.
 
+---
+
+## Ì¥ù Contributing
+
+Contributions, issues, and feature requests are welcome! 
+Feel free to check the issues page if you want to contribute.
+
+1. Fork the Project.
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`).
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`).
+4. Push to the Branch (`git push origin feature/AmazingFeature`).
+5. Open a Pull Request.
+
+---
+
+## Ì≥ú License
+
+Distributed under the MIT License. See `LICENSE` for more information.
