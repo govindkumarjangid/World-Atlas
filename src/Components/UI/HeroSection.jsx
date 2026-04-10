@@ -10,7 +10,7 @@ export const HeroSection = () => {
             transition={{ duration: 0.5 }}
             className="space-y-6"
         >
-            <p className="inline-flex rounded-md border border-cyan-300/30 bg-cyan-400/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-200">
+            <p className="inline-flex rounded-xl border border-cyan-300/30 bg-cyan-400/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-200">
                 Atlas Journey
             </p>
             <h1 className="font-display text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">
@@ -22,7 +22,7 @@ export const HeroSection = () => {
             <NavLink to="/country">
                 <button
 
-                    className="inline-flex items-center gap-2 rounded-md bg-cyan-400 px-6 py-3 font-semibold text-slate-950 transition-all duration-150 hover:bg-cyan-300 mt-10 hover:scale-105 active:scale-95 "
+                    className="inline-flex items-center gap-2 rounded-xl bg-cyan-400 px-6 py-3 font-semibold text-slate-950 transition-all duration-150 hover:bg-cyan-300 mt-10 hover:scale-105 active:scale-95 "
                 >
                     Start Exploring <ArrowRight size={18} />
                 </button>

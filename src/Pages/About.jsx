@@ -72,7 +72,7 @@ export const About = () => {
                             </div>
                         </div>
 
-                        <div className="mt-6 rounded-lg bg-slate-900/50 p-4 border border-white/5">
+                        <div className="mt-6 rounded-xl bg-slate-900/50 p-4 border border-white/5">
                             <p className="text-xs leading-relaxed text-slate-400 italic">"{interestingFact}"</p>
                         </div>
                     </motion.article>

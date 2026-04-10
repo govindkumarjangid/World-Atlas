@@ -12,7 +12,7 @@ export const Country = () => {
 
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("all");
-  const [visibleCount, setVisibleCount] = useState(12);
+  const [visibleCount, setVisibleCount] = useState(8);
   const [isLoadingMore, setIsLoadingMore] = useState(false);
 
   const searchCountry = (country) => {
@@ -50,7 +50,7 @@ export const Country = () => {
   const handleLoadMore = () => {
     setIsLoadingMore(true);
     setTimeout(() => {
-      setVisibleCount((prev) => prev + 12);
+      setVisibleCount((prev) => prev + 8);
       setIsLoadingMore(false);
     }, 600);
   };
@@ -87,7 +87,7 @@ export const Country = () => {
             whileTap={{ scale: 0.98 }}
             onClick={handleLoadMore}
             disabled={isLoadingMore}
-            className="inline-flex items-center gap-2 rounded-md border border-cyan-300/40 bg-cyan-400 px-7 py-3 font-semibold text-slate-950 transition hover:bg-cyan-300 disabled:opacity-80"
+            className="inline-flex items-center gap-2 rounded-xl border border-cyan-300/40 bg-cyan-400 px-7 py-3 font-semibold text-slate-950 transition hover:bg-cyan-300 disabled:opacity-80"
           >
             {isLoadingMore ? (
               <>

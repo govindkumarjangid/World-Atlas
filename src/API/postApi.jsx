@@ -7,7 +7,9 @@ const API = axios.create({
 
 export const getCountryData = async () => {
     try {
-        const response = await API.get("/all?fields=name,population,region,capital,flags");
+        const response = await API.get(
+            "/all?fields=name,population,region,subregion,capital,flags,continents,area,independent,unMember"
+        );
         toast.success("Country data loaded successfully!");
         return response;
     } catch (error) {
@@ -20,7 +22,7 @@ export const getCountryData = async () => {
 export const getCountryIndData = async (name) => {
     try {
         const response = await API.get(
-            `/name/${name}?fullText=true&fields=name,population,region,subregion,capital,tld,currencies,languages,borders,flags,area,timezones,continents,maps,startOfWeek,idd,cca2,cca3,independent,unMember,landlocked,latlng,altSpellings,demonyms,car,coatOfArms`
+            `/name/${name}?fullText=true&fields=name,population,region,subregion,capital,capitalInfo,tld,currencies,languages,translations,borders,flags,flag,area,timezones,continents,maps,startOfWeek,idd,cca2,ccn3,cca3,cioc,independent,unMember,landlocked,latlng,altSpellings,demonyms,car,coatOfArms,status,fifa,postalCode,gini`
         );
         toast.success(`${name} details loaded successfully!`);
         return response;

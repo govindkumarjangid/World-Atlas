@@ -10,7 +10,7 @@ export const CountryCard = ({ Country }) => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.35 }}
-        className="overflow-hidden rounded-md border border-white/10 bg-slate-900/65 shadow-lg backdrop-blur"
+        className="overflow-hidden rounded-xl border border-white/10 bg-slate-900/65 shadow-lg backdrop-blur"
     >
         <img
             src={flags.svg}
@@ -28,7 +28,7 @@ export const CountryCard = ({ Country }) => {
             <NavLink to={`/country/${Country.name.common}`}>
                 <motion.button
                     whileHover={{ x: 3 }}
-                    className="mt-3 inline-flex items-center gap-2 rounded-md border border-cyan-300/40 bg-cyan-400/10 px-4 py-2 text-sm font-medium text-cyan-200 transition-all duration-150 active:scale-95 hover:bg-cyan-400/20"
+                    className="mt-3 inline-flex items-center gap-2 rounded-xl border border-cyan-300/40 bg-cyan-400/10 px-4 py-2 text-sm font-medium text-cyan-200 transition-all duration-150 active:scale-95 hover:bg-cyan-400/20"
                 >
                     Read More <ArrowRight size={16} />
                 </motion.button>

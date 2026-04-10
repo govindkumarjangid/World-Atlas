@@ -18,12 +18,12 @@ export const WonderDetails = () => {
         >
             <button
                 onClick={() => navigate('/')}
-                className="mb-8 inline-flex items-center gap-2 rounded-md border border-cyan-300/40 bg-cyan-400/10 px-3 py-1.5  text-sm font-medium text-cyan-200 hover:bg-cyan-400/20 transition-all duration-150 active:scale-95 mt-5"
+                className="mb-8 inline-flex items-center gap-2 rounded-xl border border-cyan-300/40 bg-cyan-400/10 px-3 py-1.5  text-sm font-medium text-cyan-200 hover:bg-cyan-400/20 transition-all duration-150 active:scale-95 mt-5"
             >
                 <ArrowLeft size={18} /> Back
             </button>
 
-            <div className="relative overflow-hidden sm:rounded-md border-0 sm:border border-slate-800 bg-slate-900/40 shadow-2xl backdrop-blur-xl min-h-[100dvh] sm:min-h-0">
+            <div className="relative overflow-hidden sm:rounded-xl border-0 sm:border border-slate-800 bg-slate-900/40 shadow-2xl backdrop-blur-xl min-h-[100dvh] sm:min-h-0">
                 {/* Header Image Section */}
                 <motion.div
                     initial={{ y: 20, opacity: 0 }}
@@ -88,9 +88,9 @@ export const WonderDetails = () => {
                                     {[p1, p2, p3, p4, p5].map((fact, index) => (
                                         <li
                                             key={index}
-                                            className="flex items-start gap-4 rounded-md border border-slate-700/40 bg-slate-800/30 p-4 transition-colors hover:bg-slate-800/50"
+                                            className="flex items-start gap-4 rounded-xl border border-slate-700/40 bg-slate-800/30 p-4 transition-colors hover:bg-slate-800/50"
                                         >
-                                            <span className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-cyan-500/10 text-cyan-400">
+                                            <span className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-400">
                                                 {index === 0 ? <Globe size={18} /> :
                                                     index === 1 ? <Calendar size={18} /> :
                                                         index === 2 ? <Mountain size={18} /> :
@@ -111,7 +111,7 @@ export const WonderDetails = () => {
                             className="space-y-6"
                         >
                             {/* Quick Stats Card */}
-                            <div className="rounded-md border border-cyan-500/20 bg-cyan-950/10 p-6 shadow-inner">
+                            <div className="rounded-xl border border-cyan-500/20 bg-cyan-950/10 p-6 shadow-inner">
                                 <h3 className="mb-5 text-xl font-medium text-white">Quick Overview</h3>
                                 <div className="space-y-4">
                                     <div className="flex justify-between border-b border-slate-700/50 pb-3">
@@ -130,7 +130,7 @@ export const WonderDetails = () => {
                             </div>
 
                             {/* External Links Card */}
-                            <div className="rounded-md border border-slate-700/50 bg-slate-800/40 p-6">
+                            <div className="rounded-xl border border-slate-700/50 bg-slate-800/40 p-6">
                                 <h3 className="mb-4 text-lg font-medium text-white">Learn More</h3>
                                 <p className="mb-6 text-sm leading-relaxed text-slate-400">
                                     Dive deeper into the architectural brilliance, cultural impact, and hidden histories recorded on Wikipedia.
@@ -139,7 +139,7 @@ export const WonderDetails = () => {
                                     href={visit}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="group flex w-full items-center justify-center gap-2 rounded-md bg-cyan-600 px-4 py-3 text-sm font-semibold text-white transition-all hover:bg-cyan-500 active:scale-95"
+                                    className="group flex w-full items-center justify-center gap-2 rounded-xl bg-cyan-600 px-4 py-3 text-sm font-semibold text-white transition-all hover:bg-cyan-500 active:scale-95"
                                 >
                                     Read Wikipedia Article
                                     <ExternalLink size={16} className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />

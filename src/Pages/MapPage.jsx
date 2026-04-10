@@ -20,7 +20,7 @@ const MapPage = () => {
                               src="https://maps.google.com/maps?t=k&q=world&ie=UTF8&iwloc=&output=embed&z=3" 
                               width="100%" 
                               height="100%" 
-                              className="rounded-lg min-h-[600px] border-none"
+                              className="rounded-xl min-h-[600px] border-none"
                               allowFullScreen="" 
                               loading="lazy" 
                               referrerPolicy="no-referrer-when-downgrade"
