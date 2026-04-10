@@ -97,8 +97,3 @@ Navigate to `http://localhost:5173` (or the port provided in your terminal) to e
 - **Contact:** Send a message or inquiry via the integrated contact form.
 
 ---
-
-<<<<<<< HEAD
-
-=======
->>>>>>> e5f80ff60a2e4ce1750c05fd8fc8e86265e913df
