@@ -2,20 +2,31 @@ import { NavLink } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 
+const cardVariants = {
+    hidden: { opacity: 0, y: 24, scale: 0.98 },
+    show: {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        transition: { duration: 0.45, ease: "easeOut" },
+    },
+};
+
 export const CountryCard = ({ Country }) => {
     const { flags, name, population, region, capital } = Country;
 
     return <motion.li
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.35 }}
-        className="overflow-hidden rounded-xl border border-white/10 bg-slate-900/65 shadow-lg backdrop-blur"
+        variants={cardVariants}
+        whileHover={{ y: -6, scale: 1.02 }}
+        transition={{ type: "spring", stiffness: 260, damping: 20 }}
+        className="overflow-hidden rounded-xl border border-white/10 bg-slate-900/65 shadow-lg backdrop-blur will-change-transform"
     >
-        <img
-            src={flags.svg}
+        <motion.img
+            src={flags.svg || flags.png}
             alt={flags.alt || name.common}
             className="h-44 w-full object-cover"
+            whileHover={{ scale: 1.06 }}
+            transition={{ duration: 0.35, ease: "easeOut" }}
             loading="lazy"
         />
         <div className="space-y-2 p-5">

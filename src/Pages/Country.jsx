@@ -6,6 +6,16 @@ import { SearchFilter } from "../Components/UI/SearchFilter.jsx";
 import { motion } from "framer-motion";
 import { LoaderCircle } from "lucide-react";
 
+const gridVariants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.08,
+      delayChildren: 0.05,
+    },
+  },
+};
+
 export const Country = () => {
   const [isPending, startTrasition] = useTransition();
   const [countries, setCountries] = useState([]);
@@ -74,24 +84,39 @@ export const Country = () => {
       >
         Our Countries In The World
       </motion.h1>
-      <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      <motion.p
+        initial={{ opacity: 0, y: 18 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4, delay: 0.2 }}
+        className="mb-8 text-center text-sm text-slate-300 sm:text-base">
+        Showing {displayedCountries.length} of {filterCountries.length} countries
+        {filterCountries.length !== countries.length && (
+          <span className="text-slate-400"> from {countries.length} total</span>
+        )}
+      </motion.p>
+      <motion.ul
+        variants={gridVariants}
+        initial="hidden"
+        animate="show"
+        className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+      >
         {displayedCountries.map((curCountry, index) => {
-          return <CountryCard Country={curCountry} key={index} />;
+          return <CountryCard Country={curCountry} key={curCountry.name.common ?? index} />;
         })}
-      </ul>
+      </motion.ul>
 
       {visibleCount < filterCountries.length && (
         <div className="mt-14 mb-8 flex justify-center">
           <motion.button
-            whileHover={{ scale: 1.04 }}
-            whileTap={{ scale: 0.98 }}
+            whileHover={{ scale: 1.03, y: -1 }}
+            whileTap={{ scale: 0.97 }}
             onClick={handleLoadMore}
             disabled={isLoadingMore}
-            className="inline-flex items-center gap-2 rounded-xl border border-cyan-300/40 bg-cyan-400 px-7 py-3 font-semibold text-slate-950 transition hover:bg-cyan-300 disabled:opacity-80"
+            className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-cyan-300 via-sky-400 to-cyan-500 px-7 py-3.5 font-semibold text-white transition-all duration-200 disabled:cursor-not-allowed disabled:opacity-70 active:scale-95"
           >
             {isLoadingMore ? (
               <>
-                <LoaderCircle className="h-5 w-5 animate-spin" /> Loading
+                <LoaderCircle className="h-5 w-5 animate-spin" /> Loading..
               </>
             ) : (
               "Load More"
