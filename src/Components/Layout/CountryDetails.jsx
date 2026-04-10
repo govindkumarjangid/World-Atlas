@@ -3,8 +3,49 @@ import { NavLink, useParams } from "react-router-dom";
 import { getCountryIndData } from "../../API/postApi";
 import { Loader } from "../UI/Loader";
 import { useEffect, useState, useTransition } from "react";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Volume2 } from "lucide-react";
 import { motion } from "framer-motion";
+
+const HELLO_AUDIO_MAP = {
+    Arabic: { hello: "Marhaban", lang: "ar-SA" },
+    Bengali: { hello: "Nomoskar", lang: "bn-BD" },
+    Chinese: { hello: "Ni hao", lang: "zh-CN" },
+    Dutch: { hello: "Hallo", lang: "nl-NL" },
+    English: { hello: "Hello", lang: "en-US" },
+    French: { hello: "Bonjour", lang: "fr-FR" },
+    German: { hello: "Hallo", lang: "de-DE" },
+    Greek: { hello: "Yassas", lang: "el-GR" },
+    Hindi: { hello: "Namaste", lang: "hi-IN" },
+    Indonesian: { hello: "Halo", lang: "id-ID" },
+    Italian: { hello: "Ciao", lang: "it-IT" },
+    Japanese: { hello: "Konnichiwa", lang: "ja-JP" },
+    Korean: { hello: "Annyeonghaseyo", lang: "ko-KR" },
+    Persian: { hello: "Salaam", lang: "fa-IR" },
+    Polish: { hello: "Czesc", lang: "pl-PL" },
+    Portuguese: { hello: "Ola", lang: "pt-PT" },
+    Punjabi: { hello: "Sat Sri Akal", lang: "pa-IN" },
+    Russian: { hello: "Privet", lang: "ru-RU" },
+    Spanish: { hello: "Hola", lang: "es-ES" },
+    Swedish: { hello: "Hej", lang: "sv-SE" },
+    Tamil: { hello: "Vanakkam", lang: "ta-IN" },
+    Thai: { hello: "Sawasdee", lang: "th-TH" },
+    Turkish: { hello: "Merhaba", lang: "tr-TR" },
+    Ukrainian: { hello: "Pryvit", lang: "uk-UA" },
+    Urdu: { hello: "Assalamualaikum", lang: "ur-PK" },
+    Vietnamese: { hello: "Xin chao", lang: "vi-VN" }
+};
+
+const getHelloAudioList = (country) => {
+    const languageValues = country?.languages ? Object.values(country.languages) : [];
+    return languageValues.slice(0, 3).map((languageName) => {
+        const matched = HELLO_AUDIO_MAP[languageName];
+        return {
+            language: languageName,
+            hello: matched?.hello || "Hello",
+            lang: matched?.lang || "en-US"
+        };
+    });
+};
 
 export const CountryDetails = () => {
 
@@ -12,6 +53,15 @@ export const CountryDetails = () => {
 
     const [isPending, startTrasition] = useTransition();
     const [country, setCountry] = useState(null);
+
+    const playHelloAudio = (helloText, languageCode) => {
+        if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
+        const utterance = new SpeechSynthesisUtterance(helloText);
+        utterance.lang = languageCode;
+        utterance.rate = 0.95;
+        window.speechSynthesis.cancel();
+        window.speechSynthesis.speak(utterance);
+    };
 
     useEffect(() => {
         startTrasition(async () => {
@@ -63,6 +113,8 @@ export const CountryDetails = () => {
     const postalCodeText = country?.postalCode?.format
         ? `${country.postalCode.format}${country.postalCode.regex ? ` | ${country.postalCode.regex}` : ""}`
         : "N/A";
+
+    const helloAudioList = getHelloAudioList(country);
 
     return <section className="mx-auto max-w-7xl px-0 py-0 sm:px-6 lg:px-8 sm:py-12">
         {
@@ -154,6 +206,25 @@ export const CountryDetails = () => {
                                     <p className="sm:col-span-2 border-t border-slate-700/50 pt-4 mt-2"><span className="font-semibold text-slate-100">Timezones :</span> {country.timezones?.join(", ") || "N/A"}</p>
                                     <p className="sm:col-span-2"><span className="font-semibold text-slate-100">Postal Code Format :</span> {postalCodeText}</p>
                                     <p className="sm:col-span-2"><span className="font-semibold text-slate-100">Languages :</span> {languages}</p>
+                                    <div className="sm:col-span-2 rounded-xl border border-slate-700/50 bg-slate-800/35 p-4">
+                                        <p className="mb-3 text-sm font-semibold text-slate-100">Language Audio (Hello Pronunciation)</p>
+                                        <div className="flex flex-wrap gap-2">
+                                            {helloAudioList.length ? (
+                                                helloAudioList.map((item, idx) => (
+                                                    <button
+                                                        key={`${item.language}-${idx}`}
+                                                        type="button"
+                                                        onClick={() => playHelloAudio(item.hello, item.lang)}
+                                                        className="inline-flex items-center gap-2 rounded-xl border border-cyan-300/30 bg-cyan-400/10 px-3 py-2 text-xs font-semibold text-cyan-200 transition hover:bg-cyan-400/20"
+                                                    >
+                                                        <Volume2 size={14} /> {item.language}: {item.hello}
+                                                    </button>
+                                                ))
+                                            ) : (
+                                                <p className="text-sm text-slate-400">No language audio available.</p>
+                                            )}
+                                        </div>
+                                    </div>
                                     <p className="sm:col-span-2"><span className="font-semibold text-slate-100">Alt Spellings :</span> {altSpellings}</p>
                                 </div>
                                 <NavLink to="/country">
