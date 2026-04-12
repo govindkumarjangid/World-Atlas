@@ -108,11 +108,11 @@ export const Country = () => {
       {visibleCount < filterCountries.length && (
         <div className="mt-14 mb-8 flex justify-center">
           <motion.button
-            whileHover={{ scale: 1.03, y: -1 }}
+            whileHover={{ scale: 1.03, x: 2 }}
             whileTap={{ scale: 0.97 }}
             onClick={handleLoadMore}
             disabled={isLoadingMore}
-            className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-cyan-300 via-sky-400 to-cyan-500 px-7 py-3.5 font-semibold text-white transition-all duration-200 disabled:cursor-not-allowed disabled:opacity-70 active:scale-95"
+            className="inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-slate-800/85 px-6 py-3 text-sm font-semibold text-cyan-200 backdrop-blur-md transition-colors hover:bg-slate-700"
           >
             {isLoadingMore ? (
               <>

@@ -48,7 +48,7 @@ export const Header = () => {
                     animate={{ opacity: 1, y: 0, height: "auto" }}
                     exit={{ opacity: 0, y: -20, height: 0 }}
                     transition={{ duration: 0.4, ease: "easeInOut" }}
-                    className="absolute top-full left-0 w-full border-t border-white/10 bg-slate-900/95 overflow-hidden md:hidden shadow-2xl backdrop-blur-3xl z-40"
+                    className="absolute top-full left-0 w-full border-t border-white/10 bg-[#0C1325] overflow-hidden md:hidden shadow-2xl rounded-b-xl z-40"
                 >
                     <ul className="flex flex-col gap-6 px-6 border-b border-t border-white/5 py-8">
                         <li><NavLink to="/" className={navLinkClasses} onClick={() => setShow(false)}>Home</NavLink></li>

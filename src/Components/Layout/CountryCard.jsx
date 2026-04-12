@@ -8,7 +8,7 @@ const cardVariants = {
         opacity: 1,
         y: 0,
         scale: 1,
-        transition: { duration: 0.45, ease: "easeOut" },
+        transition: { duration: 0.7, ease: "easeOut" },
     },
 };
 
@@ -17,16 +17,14 @@ export const CountryCard = ({ Country }) => {
 
     return <motion.li
         variants={cardVariants}
-        whileHover={{ y: -6, scale: 1.02 }}
+        whileHover={{ y: -6, scale: 1.01 }}
         transition={{ type: "spring", stiffness: 260, damping: 20 }}
-        className="overflow-hidden rounded-xl border border-white/10 bg-slate-900/65 shadow-lg backdrop-blur will-change-transform"
+        className="overflow-hidden rounded-xl border border-white/10 bg-slate-900/65 shadow-lg backdrop-blur will-change-transform group"
     >
         <motion.img
             src={flags.svg || flags.png}
             alt={flags.alt || name.common}
-            className="h-44 w-full object-cover"
-            whileHover={{ scale: 1.06 }}
-            transition={{ duration: 0.35, ease: "easeOut" }}
+            className="h-44 w-full object-cover group-hover:scale-105 transition-transform duration-300"
             loading="lazy"
         />
         <div className="space-y-2 p-5">
@@ -38,8 +36,9 @@ export const CountryCard = ({ Country }) => {
             <p className="text-sm text-slate-300"><span className="font-semibold text-slate-100">Capital:</span> {capital?.[0] || "N/A"}</p>
             <NavLink to={`/country/${Country.name.common}`}>
                 <motion.button
-                    whileHover={{ x: 3 }}
-                    className="mt-3 inline-flex items-center gap-2 rounded-xl border border-cyan-300/40 bg-cyan-400/10 px-4 py-2 text-sm font-medium text-cyan-200 transition-all duration-150 active:scale-95 hover:bg-cyan-400/20"
+                    whileHover={{ scale: 1.03, x: 2 }}
+                    whileTap={{ scale: 0.97 }}
+                    className="mt-3 inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-slate-800/85 px-4 py-2 text-sm font-semibold text-cyan-200 backdrop-blur-md transition-colors hover:bg-slate-700"
                 >
                     Read More <ArrowRight size={16} />
                 </motion.button>

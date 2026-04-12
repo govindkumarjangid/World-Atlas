@@ -16,12 +16,14 @@ export const WonderDetails = () => {
             animate={{ opacity: 1 }}
             className="mx-auto max-w-6xl p-0 sm:px-6 lg:px-8 sm:py-8 bg-slate-900 sm:bg-transparent min-h-[100dvh] sm:min-h-0"
         >
-            <button
+            <motion.button
+                whileHover={{ scale: 1.03, x: -2 }}
+                whileTap={{ scale: 0.97 }}
                 onClick={() => navigate('/')}
-                className="mb-8 inline-flex items-center gap-2 rounded-xl border border-cyan-300/40 bg-cyan-400/10 px-3 py-1.5  text-sm font-medium text-cyan-200 hover:bg-cyan-400/20 transition-all duration-150 active:scale-95 mt-5"
+                className="mb-8 inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-slate-800/85 px-4 py-2 text-sm font-semibold text-cyan-200 backdrop-blur-md transition-colors hover:bg-slate-700 sm:left-6 sm:top-6 mt-5"
             >
                 <ArrowLeft size={18} /> Back
-            </button>
+            </motion.button>
 
             <div className="relative overflow-hidden sm:rounded-xl border-0 sm:border border-slate-800 bg-slate-900/40 shadow-2xl backdrop-blur-xl min-h-[100dvh] sm:min-h-0">
                 {/* Header Image Section */}
@@ -135,15 +137,17 @@ export const WonderDetails = () => {
                                 <p className="mb-6 text-sm leading-relaxed text-slate-400">
                                     Dive deeper into the architectural brilliance, cultural impact, and hidden histories recorded on Wikipedia.
                                 </p>
-                                <a
+                                <motion.a
                                     href={visit}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="group flex w-full items-center justify-center gap-2 rounded-xl bg-cyan-600 px-4 py-3 text-sm font-semibold text-white transition-all hover:bg-cyan-500 active:scale-95"
+                                    whileHover={{ scale: 1.03, x: 2 }}
+                                    whileTap={{ scale: 0.97 }}
+                                    className="group mt-3 inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-slate-800/85 px-6 py-3 text-sm font-semibold text-cyan-200 backdrop-blur-md transition-colors hover:bg-slate-700"
                                 >
                                     Read Wikipedia Article
-                                    <ExternalLink size={16} className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
-                                </a>
+                                    <ExternalLink size={16} className="transition-transform group-hover:translate-x-1  rotate-45" />
+                                </motion.a>
                             </div>
                         </motion.div>
                     </div>

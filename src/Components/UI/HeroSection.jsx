@@ -54,10 +54,10 @@ export const HeroSection = () => {
             <motion.div variants={heroItemVariants}>
                 <NavLink to="/country">
                     <motion.button
-                        whileHover={{ scale: 1.04, y: -1 }}
-                        whileTap={{ scale: 0.98 }}
+                        whileHover={{ scale: 1.03, x: 2 }}
+                        whileTap={{ scale: 0.97 }}
                         transition={{ type: "spring", stiffness: 320, damping: 22 }}
-                        className="mt-10 inline-flex items-center gap-2 rounded-xl bg-cyan-400 px-6 py-3 font-semibold text-slate-950 transition-all duration-150 hover:bg-cyan-300"
+                        className="mt-10 inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-slate-800/85 px-6 py-3 text-sm font-semibold text-cyan-200 backdrop-blur-md transition-colors hover:bg-slate-700"
                     >
                         Start Exploring <ArrowRight size={18} />
                     </motion.button>
