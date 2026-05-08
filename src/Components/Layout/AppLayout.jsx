@@ -10,6 +10,18 @@ export const AppLayout = () => {
 
     useEffect(() => {
         window.scrollTo(0, 0, { behavior: "smooth" });
+
+        // Update Canonical URL dynamically for SEO
+        const canonicalUrl = window.location.origin + pathname;
+        let link = document.querySelector("link[rel='canonical']");
+        if (link) {
+            link.setAttribute("href", canonicalUrl);
+        } else {
+            link = document.createElement("link");
+            link.setAttribute("rel", "canonical");
+            link.setAttribute("href", canonicalUrl);
+            document.head.appendChild(link);
+        }
     }, [pathname]);
 
     return <>

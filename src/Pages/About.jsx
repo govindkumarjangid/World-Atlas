@@ -16,22 +16,12 @@ export const About = () => {
 
     return <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
         <div className="mb-14 text-center">
-            <motion.h2
-                initial={{ opacity: 0, y: 24 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.45 }}
-                className="font-display text-4xl font-bold text-white sm:text-5xl"
-            >
+            <h2 className="font-display text-4xl font-bold text-white sm:text-5xl">
                 World's Top 10 Economies
-            </motion.h2>
-            <motion.p
-                initial={{ opacity: 0, y: 24 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.45, delay: 0.1 }}
-                className="mt-4 text-lg text-slate-400"
-            >
+            </h2>
+            <p className="mt-4 text-lg text-slate-400">
                 Global Leaders by Nominal GDP and Economic Influence
-            </motion.p>
+            </p>
         </div>
 
         <motion.div
