@@ -1,13 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Suspense, lazy } from "react";
 import { AppLayout } from "./Components/Layout/AppLayout";
-import { Loader } from "lucide-react";
-
-const LoadingFallback = () => (
-  <div className="flex min-h-[50vh] items-center justify-center">
-    <Loader className="animate-spin text-cyan-500" size={40} />
-  </div>
-);
+import LoadingFallback from "./Components/UI/LoadingFallback";
 
 const Home = lazy(() => import("./Pages/Home").then(m => ({ default: m.Home || m.default })));
 const About = lazy(() => import("./Pages/About").then(m => ({ default: m.About || m.default })));
