@@ -41,7 +41,7 @@ export const WonderCard = ({ data, index }) => {
                         <p>{p4}</p>
                         <p>{p5}</p>
                   </div>
-                  <NavLink to={`/wonders/${index}`}>
+                  <NavLink to={`/wonders/${index}`} aria-label={`Read more about ${title}`}>
                         <motion.button
                               whileHover={{ scale: 1.03, x: 2 }}
                               whileTap={{ scale: 0.97 }}

@@ -1,8 +1,7 @@
 import { NavLink, useParams } from "react-router-dom";
 import { getCountryIndData } from "../../API/postApi";
-import { Loader } from "../UI/Loader";
+import { Loader, ArrowLeft, Volume2 } from "lucide-react";
 import { useEffect, useState, useTransition } from "react";
-import { ArrowLeft, Volume2 } from "lucide-react";
 import { motion } from "framer-motion";
 
 const MotionNavLink = motion(NavLink);
@@ -91,7 +90,11 @@ export const CountryDetails = () => {
         });
     }, [params.id]);
 
-    if (isPending) return <Loader />;
+    if (isPending) return (
+        <div className="flex min-h-[50vh] items-center justify-center">
+            <Loader className="animate-spin text-cyan-500" size={40} />
+        </div>
+    );
 
     const nativeNames = country?.name?.nativeName
         ? Object.keys(country.name.nativeName)

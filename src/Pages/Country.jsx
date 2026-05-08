@@ -1,6 +1,6 @@
 import { useEffect, useState, useTransition } from "react";
 import { getCountryData } from "../API/postApi.jsx";
-import { Loader } from "../Components/UI/Loader";
+import { Loader } from "lucide-react";
 import { CountryCard } from "../Components/Layout/CountryCard.jsx";
 import { SearchFilter } from "../Components/UI/SearchFilter.jsx";
 import { motion } from "framer-motion";
@@ -53,7 +53,11 @@ export const Country = () => {
     });
   }, []);
 
-  if (isPending) return <Loader />;
+  if (isPending) return (
+    <div className="flex min-h-[50vh] items-center justify-center">
+      <Loader className="animate-spin text-cyan-500" size={40} />
+    </div>
+  );
 
   const displayedCountries = filterCountries.slice(0, visibleCount);
 
