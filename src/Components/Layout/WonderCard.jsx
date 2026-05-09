@@ -37,13 +37,13 @@ export const WonderCard = ({ data, index, imagePosition = 'left' }) => {
                               <p className="text-xs">{p5}</p>
                         </div>
                         <div className='mt-4'>
-                              <NavLink to={`/wonders/${index}`} aria-label={`Read more about ${title}`}>
+                              <NavLink to={`/wonders/${index}`}>
                                     <motion.button
                                           whileHover={{ scale: 1.03 }}
                                           whileTap={{ scale: 0.97 }}
                                           className='inline-flex items-center gap-2 rounded-full border border-cyan-300/40 bg-cyan-400/10 px-4 py-2 text-sm font-medium text-cyan-200 transition-colors hover:bg-cyan-400/20'
                                     >
-                                          Read More <ArrowRight size={16} />
+                                          Explore {title} <ArrowRight size={16} aria-hidden="true" />
                                     </motion.button>
                               </NavLink>
                         </div>
