@@ -146,7 +146,7 @@ export const WonderDetails = () => {
                                     className="group mt-3 inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-slate-800/85 px-6 py-3 text-sm font-semibold text-cyan-200 backdrop-blur-md transition-colors hover:bg-slate-700"
                                 >
                                     Read Wikipedia Article
-                                    <ExternalLink size={16} className="transition-transform group-hover:translate-x-1  rotate-45" />
+                                    <ExternalLink size={16} className="transition-transform group-hover:translate-x-1" />
                                 </motion.a>
                             </div>
                         </motion.div>
