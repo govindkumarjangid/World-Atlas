@@ -2,6 +2,18 @@ import { NavLink } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
+const getOptimizedSrc = (src, width = 600) => {
+      const trimmed = src.trim();
+      if (trimmed.includes('pexels.com')) {
+            const url = new URL(trimmed);
+            url.searchParams.set('auto', 'compress');
+            url.searchParams.set('cs', 'tinysrgb');
+            url.searchParams.set('w', String(width));
+            return url.toString();
+      }
+      return trimmed;
+};
+
 export const WonderCard = ({ data, index, imagePosition = 'left' }) => {
       const { img, title, p1, p2, p3, p4, p5 } = data;
 
@@ -18,9 +30,12 @@ export const WonderCard = ({ data, index, imagePosition = 'left' }) => {
             >
                   <div className='relative overflow-hidden lg:w-1/2 shrink-0'>
                         <motion.img
-                              src={img}
+                              src={getOptimizedSrc(img)}
                               alt={title}
+                              width={600}
+                              height={400}
                               loading='lazy'
+                              decoding='async'
                               className='h-full min-h-[16rem] w-full min-w-[10rem] object-cover group-hover:scale-105 transition-transform duration-300'
                         />
                         <div className='absolute inset-x-0 -bottom-2 backdrop-blur-sm px-4 py-3 text-sm font-semibold text-cyan-100'>

@@ -48,10 +48,12 @@ export const HeroSection = () => {
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 0.4, ease: "easeOut", delay: 0.4 }}
                 src="/world1.png"
-                alt="World Beauty"
+                alt="World Atlas Explorer — interactive globe showing countries and continents"
+                width={448}
+                height={448}
                 className="aspect-square w-full max-w-md rounded-full border-4 border-slate-500/60 object-cover shadow-2xl"
                 fetchpriority="high"
-                loading="lazy"
+                decoding="async"
             />
         </div>
     </main>

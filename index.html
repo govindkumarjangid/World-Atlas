@@ -15,10 +15,16 @@
   <meta name="author" content="World Atlas Explorer" />
   <meta name="robots" content="index, follow" />
 
-  <!-- Preconnect to Google Fonts for performance -->
+  <!-- Preconnect to Google Fonts & image CDNs for performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://images.pexels.com" crossorigin />
+  <link rel="preconnect" href="https://upload.wikimedia.org" crossorigin />
+
+  <!-- Non-render-blocking Google Fonts: load async via media swap -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" /></noscript>
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
@@ -38,6 +44,8 @@
 </head>
 
 <body>
+  <!-- Preload LCP hero image for fastest discovery -->
+  <link rel="preload" as="image" href="/world1.png" fetchpriority="high" />
   <main id="root"></main>
   <script type="module" src="/src/main.jsx"></script>
 </body>

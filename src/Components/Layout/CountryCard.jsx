@@ -24,8 +24,11 @@ export const CountryCard = ({ Country }) => {
         <motion.img
             src={flags.svg || flags.png}
             alt={flags.alt || name.common}
+            width={320}
+            height={176}
             className="h-44 w-full object-cover group-hover:scale-105 transition-transform duration-300"
             loading="lazy"
+            decoding="async"
         />
         <div className="space-y-2 p-5">
             <p className="font-display text-xl font-semibold text-white">
