@@ -116,40 +116,45 @@ export const Country = () => {
         })}
       </motion.ul>
 
-      <div className="mt-14 mb-8 flex w-full max-w-3xl flex-col items-center justify-center gap-4 mx-auto sm:flex-row sm:flex-wrap sm:gap-5">
-        <motion.button
-          whileHover={{ scale: 1.03, x: -2 }}
-          whileTap={{ scale: 0.97 }}
-          onClick={handleLeft}
-          disabled={currentPageIndex === 0}
-          className="inline-flex items-center justify-center shrink-0 rounded-full border border-cyan-500/30 bg-slate-800/85 p-2.5 text-sm font-semibold text-cyan-200 backdrop-blur-md transition-colors hover:bg-slate-700 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-slate-800/85"
-        >
-          <ChevronLeft className="h-6 w-6 sm:h-7 sm:w-7" />
-        </motion.button>
-        <div className="flex w-full max-w-full items-center justify-center gap-1.5 overflow-x-auto pb-2 sm:w-auto sm:max-w-none sm:flex-wrap sm:justify-center sm:gap-2 sm:overflow-visible sm:pb-0">
-          {
-            pages.map((page, index) => (
-              <button
-                key={index}
-                disabled={page === "..."}
-                className={`inline-flex items-center justify-center min-w-[2.25rem] rounded-full px-2.5 py-1.5 text-xs transition-colors ${page === "..." ? "bg-transparent cursor-default text-white/50 !min-w-0 !px-1" : currentPageIndex === page ? 'bg-cyan-500/50 font-bold text-white' : 'border border-cyan-500/20 bg-slate-800/85 font-semibold text-cyan-100 backdrop-blur-md hover:bg-slate-700'}`}
-                onClick={() => page !== "..." && setCurrentPageIndex(page)}
-              >
-                {page !== "..." ? page + 1 : '...'}
-              </button>
-            ))
-          }
-        </div>
-        <motion.button
-          whileHover={{ scale: 1.03, x: 2 }}
-          whileTap={{ scale: 0.97 }}
-          onClick={handleRight}
-          disabled={currentPageIndex === totalPages - 1}
-          className="inline-flex items-center justify-center shrink-0 rounded-full border border-cyan-500/30 bg-slate-800/85 p-2.5 text-sm font-semibold text-cyan-200 backdrop-blur-md transition-colors hover:bg-slate-700 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-slate-800/85"
-        >
-          <ChevronRight className="h-6 w-6 sm:h-7 sm:w-7" />
-        </motion.button>
-      </div>
+
+      {
+        filterCountries.length !== 0 && (
+          <div className="mt-14 mb-8 flex w-full max-w-3xl flex-col items-center justify-center gap-4 mx-auto sm:flex-row sm:flex-wrap sm:gap-5">
+            <motion.button
+              whileHover={{ scale: 1.03, x: -2 }}
+              whileTap={{ scale: 0.97 }}
+              onClick={handleLeft}
+              disabled={currentPageIndex === 0}
+              className="inline-flex items-center justify-center shrink-0 rounded-full border border-cyan-500/30 bg-slate-800/85 p-2.5 text-sm font-semibold text-cyan-200 backdrop-blur-md transition-colors hover:bg-slate-700 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-slate-800/85"
+            >
+              <ChevronLeft className="h-6 w-6 sm:h-7 sm:w-7" />
+            </motion.button>
+            <div className="flex w-full max-w-full items-center justify-center gap-1.5 overflow-x-auto pb-2 sm:w-auto sm:max-w-none sm:flex-wrap sm:justify-center sm:gap-2 sm:overflow-visible sm:pb-0">
+              {
+                pages.map((page, index) => (
+                  <button
+                    key={index}
+                    disabled={page === "..."}
+                    className={`inline-flex items-center justify-center min-w-[2.25rem] rounded-full px-2.5 py-1.5 text-xs transition-colors ${page === "..." ? "bg-transparent cursor-default text-white/50 !min-w-0 !px-1" : currentPageIndex === page ? 'bg-cyan-500/50 font-bold text-white' : 'border border-cyan-500/20 bg-slate-800/85 font-semibold text-cyan-100 backdrop-blur-md hover:bg-slate-700'}`}
+                    onClick={() => page !== "..." && setCurrentPageIndex(page)}
+                  >
+                    {page !== "..." ? page + 1 : '...'}
+                  </button>
+                ))
+              }
+            </div>
+            <motion.button
+              whileHover={{ scale: 1.03, x: 2 }}
+              whileTap={{ scale: 0.97 }}
+              onClick={handleRight}
+              disabled={currentPageIndex === totalPages - 1}
+              className="inline-flex items-center justify-center shrink-0 rounded-full border border-cyan-500/30 bg-slate-800/85 p-2.5 text-sm font-semibold text-cyan-200 backdrop-blur-md transition-colors hover:bg-slate-700 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-slate-800/85"
+            >
+              <ChevronRight className="h-6 w-6 sm:h-7 sm:w-7" />
+            </motion.button>
+          </div>
+        )
+      }
 
     </section>
   );

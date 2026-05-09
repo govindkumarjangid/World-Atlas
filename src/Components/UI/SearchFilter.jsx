@@ -1,14 +1,17 @@
 
 import { ArrowDownAZ, ArrowUpAZ, Search, Map, AlignLeft } from "lucide-react";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 export const SearchFilter = (props) => {
 
     const { search, setSearch, filter, setFilter, countries, setCountries } = props;
 
+    const [localSearch, setLocalSearch] = useState(search);
+
     const handleInputChange = (e) => {
         e.preventDefault();
-        setSearch(e.target.value);
+        setLocalSearch(e.target.value);
     }
 
     const handleselectChange = (e) => {
@@ -25,6 +28,15 @@ export const SearchFilter = (props) => {
         setCountries(sortCountry);
     };
 
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setSearch(localSearch);
+        }, 600);
+
+        return () => clearTimeout(timer);
+    }, [localSearch]);
+
+
     return <motion.section
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -36,7 +48,7 @@ export const SearchFilter = (props) => {
             <input type="text"
                 name="search"
                 placeholder="Search country by name..."
-                value={search}
+                value={localSearch}
                 onChange={handleInputChange}
                 className="w-full rounded-xl border border-slate-700/50 bg-slate-950/50 py-3 pl-11 pr-4 text-sm text-slate-100 outline-none transition-all placeholder:text-slate-500 hover:border-slate-600 focus:border-cyan-400 focus:bg-slate-900/80 "
             />
