@@ -5,6 +5,7 @@ import { CountryCard } from "../Components/Layout/CountryCard.jsx";
 import { SearchFilter } from "../Components/UI/SearchFilter.jsx";
 import { motion } from "framer-motion";
 import LoadingFallback from '../Components/UI/LoadingFallback.jsx'
+import { generatePagination } from '../utils/generatePagination.js'
 
 export const Country = () => {
 
@@ -36,21 +37,6 @@ export const Country = () => {
   const totalPages = Math.ceil(filterCountries.length / pageSize);
   const start = currentPageIndex * pageSize;
   const end = start + pageSize;
-
-
-  const generatePagination = (totalPages, currentPageIndex) => {
-    const pages = [];
-    if (totalPages <= 5) {
-      for (let i = 0; i < totalPages; i++) pages.push(i);
-    } else if (currentPageIndex < 3) {
-      pages.push(0, 1, 2, '...', totalPages - 3, totalPages - 2, totalPages - 1);
-    } else if (currentPageIndex > totalPages - 4) {
-      pages.push(0, 1, 2, '...', totalPages - 3, totalPages - 2, totalPages - 1);
-    } else {
-      pages.push(0, '...', currentPageIndex - 1, currentPageIndex, currentPageIndex + 1, '...', totalPages - 1);
-    }
-    return pages;
-  }
 
   const pages = generatePagination(totalPages, currentPageIndex);
 
@@ -136,7 +122,7 @@ export const Country = () => {
           whileTap={{ scale: 0.97 }}
           onClick={handleLeft}
           disabled={currentPageIndex === 0}
-          className="inline-flex items-center justify-center shrink-0 rounded-full border border-cyan-500/30 bg-slate-800/85 p-2.5 sm:p-5 text-sm font-semibold text-cyan-200 backdrop-blur-md transition-colors hover:bg-slate-700 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-slate-800/85"
+          className="inline-flex items-center justify-center shrink-0 rounded-full border border-cyan-500/30 bg-slate-800/85 p-2.5 text-sm font-semibold text-cyan-200 backdrop-blur-md transition-colors hover:bg-slate-700 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-slate-800/85"
         >
           <ChevronLeft className="h-6 w-6 sm:h-7 sm:w-7" />
         </motion.button>
@@ -146,7 +132,7 @@ export const Country = () => {
               <button
                 key={index}
                 disabled={page === "..."}
-                className={`inline-flex flex-none items-center justify-center min-w-[2.25rem] sm:min-w-[3rem] rounded-full px-2.5 py-2 sm:px-4 md:px-6 sm:py-3 text-xs sm:text-base transition-colors ${page === "..." ? "bg-transparent cursor-default text-white/50 !min-w-0 !px-1" : currentPageIndex === page ? 'bg-cyan-500/50 font-bold text-white shadow-[0_0_10px_rgba(34,211,238,0.4)]' : 'border border-cyan-500/20 bg-slate-800/85 font-semibold text-cyan-100 backdrop-blur-md hover:bg-slate-700'}`}
+                className={`inline-flex items-center justify-center min-w-[2.25rem] rounded-full px-2.5 py-1.5 text-xs transition-colors ${page === "..." ? "bg-transparent cursor-default text-white/50 !min-w-0 !px-1" : currentPageIndex === page ? 'bg-cyan-500/50 font-bold text-white' : 'border border-cyan-500/20 bg-slate-800/85 font-semibold text-cyan-100 backdrop-blur-md hover:bg-slate-700'}`}
                 onClick={() => page !== "..." && setCurrentPageIndex(page)}
               >
                 {page !== "..." ? page + 1 : '...'}
@@ -159,7 +145,7 @@ export const Country = () => {
           whileTap={{ scale: 0.97 }}
           onClick={handleRight}
           disabled={currentPageIndex === totalPages - 1}
-          className="inline-flex items-center justify-center shrink-0 rounded-full border border-cyan-500/30 bg-slate-800/85 p-2.5 sm:p-5 text-sm font-semibold text-cyan-200 backdrop-blur-md transition-colors hover:bg-slate-700 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-slate-800/85"
+          className="inline-flex items-center justify-center shrink-0 rounded-full border border-cyan-500/30 bg-slate-800/85 p-2.5 text-sm font-semibold text-cyan-200 backdrop-blur-md transition-colors hover:bg-slate-700 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-slate-800/85"
         >
           <ChevronRight className="h-6 w-6 sm:h-7 sm:w-7" />
         </motion.button>
