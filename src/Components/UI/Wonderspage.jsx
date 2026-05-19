@@ -1,9 +1,34 @@
 import wondersData from '../../API/wondersData.json'
 import { Landmark } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useSpring } from 'framer-motion';
 import { WonderCard } from '../Layout/WonderCard';
+import { useRef, useState, useEffect } from 'react';
 
 const Wonderspage = () => {
+      const containerRef = useRef(null);
+      const lastCardRef = useRef(null);
+      const [lastCardHeight, setLastCardHeight] = useState(0);
+
+      useEffect(() => {
+            if (!lastCardRef.current) return;
+            const observer = new ResizeObserver((entries) => {
+                  setLastCardHeight(entries[0].target.offsetHeight);
+            });
+            observer.observe(lastCardRef.current);
+            return () => observer.disconnect();
+      }, []);
+
+      const { scrollYProgress } = useScroll({
+            target: containerRef,
+            offset: ["start end", "end center"]
+      });
+
+      const scaleY = useSpring(scrollYProgress, {
+            stiffness: 100,
+            damping: 30,
+            restDelta: 0.001
+      });
+
       return (
             <section className='mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8'>
                   <motion.h2
@@ -15,15 +40,23 @@ const Wonderspage = () => {
                         <Landmark className='text-cyan-300 ' size={50} /> The Seven Wonders of the World
                   </motion.h2>
 
-                  <div className='relative mx-auto mt-16 max-w-7xl space-y-16 md:space-y-24'>
-                        {/* Timeline Center Line */}
-                        <div className='absolute md:block hidden bottom-0 left-[17px] top-0 w-0.5 -translate-x-1/2 bg-cyan-700/50 md:left-1/2' />
-
+                  <div ref={containerRef} className='relative mx-auto mt-16 max-w-7xl space-y-16 md:space-y-24'>
+                        {/* Timeline Center Line Background */}
+                        <div
+                              className='absolute md:block hidden left-[17px] top-8 w-0.5 -translate-x-1/2 bg-cyan-900/30 md:left-1/2'
+                              style={{ bottom: `${lastCardHeight > 52 ? lastCardHeight - 52 : 0}px` }}
+                        />
+                        {/* Timeline Center Line Animated */}
+                        <motion.div
+                              style={{ scaleY, originY: 0, bottom: `${lastCardHeight > 52 ? lastCardHeight - 52 : 0}px` }}
+                              className='absolute md:block hidden left-[17px] top-8 z-0 w-0.5 -translate-x-1/2 bg-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.5)] md:left-1/2'
+                        />
                         {
                               wondersData.map((data, index) => {
                                     const isEven = index % 2 === 0;
+                                    const isLast = index === wondersData.length - 1;
                                     return (
-                                          <div key={data.title} className={`relative flex items-start w-full ${isEven ? 'md:flex-row-reverse' : 'md:flex-row'}`}>
+                                          <div key={data.title} ref={isLast ? lastCardRef : null} className={`relative flex items-start w-full ${isEven ? 'md:flex-row-reverse' : 'md:flex-row'}`}>
                                                 {/* Timeline Dot - Aligned with the top of the card */}
                                                 <div className='absolute md:block hidden left-[17px] top-8 z-10 h-5 w-5 -translate-x-1/2 rounded-full border-4 border-slate-950 bg-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.6)] md:left-1/2' />
 

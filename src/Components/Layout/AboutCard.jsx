@@ -1,12 +1,14 @@
 import { motion } from "framer-motion";
+import { filter } from "framer-motion/client";
 import { TrendingUp, Landmark, Users, Coins, Languages } from "lucide-react";
 
 const cardVariants = {
-    hidden: { opacity: 0, y: 24, scale: 0.98 },
+    hidden: { opacity: 0, y: 24, scale: 0.98, filter: "blur(5px)" },
     show: {
         opacity: 1,
         scale: 1,
         y: 0,
+        filter: "blur(0px)",
         transition: { duration: 0.7, ease: "easeOut" },
     },
 };
