@@ -40,17 +40,18 @@ const Wonderspage = () => {
                         <Landmark className='text-cyan-300 ' size={50} /> The Seven Wonders of the World
                   </motion.h2>
 
-                  <div ref={containerRef} className='relative mx-auto mt-16 max-w-7xl space-y-16 md:space-y-24'>
+                  <div ref={containerRef} className='relative mx-auto mt-16 max-w-7xl'>
                         {/* Timeline Center Line Background */}
                         <div
-                              className='absolute md:block hidden left-[17px] top-8 w-0.5 -translate-x-1/2 bg-cyan-900/30 md:left-1/2'
-                              style={{ bottom: `${lastCardHeight > 52 ? lastCardHeight - 52 : 0}px` }}
+                              className='absolute md:block hidden left-[17px] top-[42px] w-0.5 -translate-x-1/2 bg-cyan-900/30 md:left-1/2'
+                              style={{ bottom: `${lastCardHeight > 42 ? lastCardHeight - 42 : 0}px` }}
                         />
                         {/* Timeline Center Line Animated */}
                         <motion.div
-                              style={{ scaleY, originY: 0, bottom: `${lastCardHeight > 52 ? lastCardHeight - 52 : 0}px` }}
-                              className='absolute md:block hidden left-[17px] top-8 z-0 w-0.5 -translate-x-1/2 bg-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.5)] md:left-1/2'
+                              style={{ scaleY, originY: 0, bottom: `${lastCardHeight > 42 ? lastCardHeight - 42 : 0}px` }}
+                              className='absolute md:block hidden left-[17px] top-[42px] z-0 w-0.5 -translate-x-1/2 bg-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.5)] md:left-1/2'
                         />
+                        <div className="space-y-16 md:space-y-24 w-full">
                         {
                               wondersData.map((data, index) => {
                                     const isEven = index % 2 === 0;
@@ -65,7 +66,7 @@ const Wonderspage = () => {
                                                       initial={{ width: 0, opacity: 0 }}
                                                       whileInView={{ width: '10%', opacity: 1 }}
                                                       transition={{ duration: 0.9, ease: "easeOut", delay: index * 0.05 }}
-                                                      className={`hidden absolute top-10 w-[6%] h-0.5 bg-cyan-700/50 md:block ${isEven ? 'right-[50%] md:right-[50%]' : 'left-[50%] md:left-[50%]'}`} style={{ width: '10%' }} />
+                                                      className={`hidden absolute top-10 w-[6%] h-0.5 bg-cyan-400 md:block ${isEven ? 'right-[50%] md:right-[50%]' : 'left-[50%] md:left-[50%]'}`} />
 
                                                 {/* Empty space for alternating layout on desktop */}
                                                 <div className='hidden w-1/2 md:block' />
@@ -82,6 +83,7 @@ const Wonderspage = () => {
                                     )
                               })
                         }
+                        </div>
                   </div>
             </section>
       )

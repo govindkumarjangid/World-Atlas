@@ -21,18 +21,19 @@ const pageVariants = {
     show: {
         opacity: 1,
         transition: {
-            staggerChildren: 0.06,
-            delayChildren: 0.06,
+            staggerChildren: 0.08,
+            delayChildren: 0.1,
         },
     },
 };
 
 const blockVariants = {
-    hidden: { opacity: 0, y: 18 },
+    hidden: { opacity: 0, y: 18, filter: "blur(5px)" },
     show: {
         opacity: 1,
         y: 0,
-        transition: { duration: 0.45, ease: "easeOut" },
+        filter: "blur(0px)",
+        transition: { duration: 0.5, ease: "easeOut" },
     },
 };
 
@@ -41,7 +42,8 @@ export const CountryDetails = () => {
     const [isPending, startTrasition] = useTransition();
     const [country, setCountry] = useState(null);
     const [translationPage, setTranslationPage] = useState(0);
-    const TRANSLATIONS_PER_PAGE = 6;
+    const TRANSLATIONS_PER_PAGE = 9;
+    // console.log(country)
 
     const playHelloAudio = (helloText, languageCode) => {
         if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
@@ -244,161 +246,182 @@ export const CountryDetails = () => {
                     <div className="space-y-5 p-4 sm:p-6 lg:p-8">
 
                         {/* Geography & Location */}
-                        <SectionCard icon={Globe} title="Geography & Location">
-                            <div className="grid gap-0 sm:grid-cols-2">
-                                <DetailRow label="Region" value={country.region} />
-                                <DetailRow label="Sub Region" value={country.subregion} />
-                                <DetailRow label="Continents" value={country.continents?.join(", ")} />
-                                <DetailRow label="Capital" value={country.capital?.join(", ")} />
-                                <DetailRow label="Capital Coordinates" value={capitalCoords} />
-                                <DetailRow label="Country Coordinates" value={coords} />
-                                <DetailRow label="Area" value={country.area ? `${country.area.toLocaleString()} km²` : "N/A"} />
-                                <DetailRow label="Landlocked" value={country.landlocked ? "Yes" : "No"} />
-                            </div>
-                        </SectionCard>
+                        <motion.div variants={blockVariants}>
+                            <SectionCard icon={Globe} title="Geography & Location">
+                                <div className="grid gap-0 sm:grid-cols-2">
+                                    <DetailRow label="Region" value={country.region} />
+                                    <DetailRow label="Sub Region" value={country.subregion} />
+                                    <DetailRow label="Continents" value={country.continents?.join(", ")} />
+                                    <DetailRow label="Capital" value={country.capital?.join(", ")} />
+                                    <DetailRow label="Capital Coordinates" value={capitalCoords} />
+                                    <DetailRow label="Country Coordinates" value={coords} />
+                                    <DetailRow label="Area" value={country.area ? `${country.area.toLocaleString()} km²` : "N/A"} />
+                                    <DetailRow label="Landlocked" value={country.landlocked ? "Yes" : "No"} />
+                                </div>
+                            </SectionCard>
+                        </motion.div>
 
                         {/* Population & Demographics*/}
-                        <SectionCard icon={Users} title="Population & Demographics">
-                            <div className="grid gap-0 sm:grid-cols-2">
-                                <DetailRow label="Population" value={country.population?.toLocaleString()} />
-                                <DetailRow label="Gini Index" value={giniText} />
-                                {country.demonyms && Object.entries(country.demonyms).map(([langCode, dem]) => (
-                                    <DetailRow
-                                        key={langCode}
-                                        label={`Demonym (${langCode.toUpperCase()})`}
-                                        value={`♂ ${dem.m} / ♀ ${dem.f}`}
-                                    />
-                                ))}
-                            </div>
-                        </SectionCard>
+                        <motion.div variants={blockVariants}>
+                            <SectionCard icon={Users} title="Population & Demographics">
+                                <div className="grid gap-0 sm:grid-cols-2">
+                                    <DetailRow label="Population" value={country.population?.toLocaleString()} />
+                                    <DetailRow label="Gini Index" value={giniText} />
+                                    {country.demonyms && Object.entries(country.demonyms).map(([langCode, dem]) => (
+                                        <DetailRow
+                                            key={langCode}
+                                            label={`Demonym (${langCode.toUpperCase()})`}
+                                            value={`♂ ${dem.m} / ♀ ${dem.f}`}
+                                        />
+                                    ))}
+                                </div>
+                            </SectionCard>
+                        </motion.div>
 
                         {/*Languages & Audio */}
-                        <SectionCard icon={Languages} title="Languages">
-                            <div className="grid gap-0 sm:grid-cols-2 mb-4">
-                                {languageEntries.map(([code, name]) => (
-                                    <DetailRow key={code} label={code.toUpperCase()} value={name} />
-                                ))}
-                            </div>
-
-                            {helloAudioList.length > 0 && (
-                                <div className="rounded-xl border border-slate-700/40 bg-slate-800/30 p-4">
-                                    <p className="mb-3 text-sm font-semibold text-slate-100 flex items-center gap-2">
-                                        <Volume2 size={16} className="text-cyan-400" />
-                                        Hello Pronunciation
-                                    </p>
-                                    <div className="flex flex-wrap gap-2">
-                                        {helloAudioList.map((item, idx) => (
-                                            <motion.button
-                                                key={`${item.language}-${idx}`}
-                                                type="button"
-                                                whileHover={{ y: -2, scale: 1.02 }}
-                                                whileTap={{ scale: 0.98 }}
-                                                onClick={() => playHelloAudio(item.hello, item.lang)}
-                                                className="inline-flex items-center gap-2 rounded-xl border border-cyan-300/30 bg-cyan-400/10 px-3 py-2 text-xs font-semibold text-cyan-200 transition hover:bg-cyan-400/20"
-                                            >
-                                                <Volume2 size={14} /> {item.language}: {item.hello}
-                                            </motion.button>
-                                        ))}
-                                    </div>
+                        <motion.div variants={blockVariants}>
+                            <SectionCard icon={Languages} title="Languages">
+                                <div className="grid gap-0 sm:grid-cols-2 mb-4">
+                                    {languageEntries.map(([code, name]) => (
+                                        <DetailRow key={code} label={code.toUpperCase()} value={name} />
+                                    ))}
                                 </div>
-                            )}
-                        </SectionCard>
+
+                                {helloAudioList.length > 0 && (
+                                    <div className="rounded-xl border border-slate-700/40 bg-slate-800/30 p-4">
+                                        <p className="mb-3 text-sm font-semibold text-slate-100 flex items-center gap-2">
+                                            <Volume2 size={16} className="text-cyan-400" />
+                                            Hello Pronunciation
+                                        </p>
+                                        <div className="flex flex-wrap gap-2">
+                                            {helloAudioList.map((item, idx) => (
+                                                <motion.button
+                                                    key={`${item.language}-${idx}`}
+                                                    type="button"
+                                                    whileHover={{ y: -2, scale: 1.02 }}
+                                                    whileTap={{ scale: 0.98 }}
+                                                    onClick={() => playHelloAudio(item.hello, item.lang)}
+                                                    className="inline-flex items-center gap-2 rounded-xl border border-cyan-300/30 bg-cyan-400/10 px-3 py-2 text-xs font-semibold text-cyan-200 transition hover:bg-cyan-400/20"
+                                                >
+                                                    <Volume2 size={14} /> {item.language}: {item.hello}
+                                                </motion.button>
+                                            ))}
+                                        </div>
+                                    </div>
+                                )}
+                            </SectionCard>
+                        </motion.div>
 
                         {/*Currencies */}
-                        <SectionCard icon={Coins} title="Currencies">
-                            {currencyEntries.length > 0 ? (
-                                <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-                                    {currencyEntries.map(([code, cur]) => (
-                                        <div key={code} className="flex items-center gap-3 rounded-xl border border-slate-700/40 bg-slate-800/30 p-4">
-                                            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-500/10 text-lg font-bold text-cyan-300 shrink-0">
-                                                {cur.symbol || code[0]}
-                                            </span>
-                                            <div>
-                                                <p className="text-sm font-semibold text-white">{cur.name}</p>
-                                                <p className="text-xs text-slate-400 font-mono">{code}{cur.symbol ? ` · ${cur.symbol}` : ""}</p>
+                        <motion.div variants={blockVariants}>
+                            <SectionCard icon={Coins} title="Currencies">
+                                {currencyEntries.length > 0 ? (
+                                    <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                                        {currencyEntries.map(([code, cur]) => (
+                                            <div key={code} className="flex items-center gap-3 rounded-xl border border-slate-700/40 bg-slate-800/30 p-4">
+                                                <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-500/10 text-lg font-bold text-cyan-300 shrink-0">
+                                                    {cur.symbol || code[0]}
+                                                </span>
+                                                <div>
+                                                    <p className="text-sm font-semibold text-white">{cur.name}</p>
+                                                    <p className="text-xs text-slate-400 font-mono">{code}{cur.symbol ? ` · ${cur.symbol}` : ""}</p>
+                                                </div>
                                             </div>
-                                        </div>
-                                    ))}
-                                </div>
-                            ) : (
-                                <p className="text-sm text-slate-400">No currency data available.</p>
-                            )}
-                        </SectionCard>
+                                        ))}
+                                    </div>
+                                ) : (
+                                    <p className="text-sm text-slate-400">No currency data available.</p>
+                                )}
+                            </SectionCard>
+                        </motion.div>
 
                         {/* Codes & Identifiers */}
-                        <SectionCard icon={Hash} title="Codes & Identifiers">
-                            <div className="grid gap-0 sm:grid-cols-2 lg:grid-cols-3">
-                                <DetailRow label="CCA2 (ISO 3166‑1 α2)" value={country.cca2} mono />
-                                <DetailRow label="CCA3 (ISO 3166‑1 α3)" value={country.cca3} mono />
-                                <DetailRow label="CCN3 (ISO 3166‑1 №)" value={country.ccn3} mono />
-                                <DetailRow label="CIOC (Olympic)" value={country.cioc || "N/A"} mono />
-                                <DetailRow label="FIFA Code" value={country.fifa || "N/A"} mono />
-                                <DetailRow label="Status" value={country.status} />
-                                <DetailRow label="Top Level Domain" value={country.tld?.join(", ")} mono />
-                                <DetailRow label="Dial Code (IDD)" value={idd} mono />
-                            </div>
-                        </SectionCard>
+                        <motion.div variants={blockVariants}>
+                            <SectionCard icon={Hash} title="Codes & Identifiers">
+                                <div className="grid gap-0 sm:grid-cols-2 lg:grid-cols-3">
+                                    <DetailRow label="CCA2 (ISO 3166‑1 α2)" value={country.cca2} mono />
+                                    <DetailRow label="CCA3 (ISO 3166‑1 α3)" value={country.cca3} mono />
+                                    <DetailRow label="CCN3 (ISO 3166‑1 №)" value={country.ccn3} mono />
+                                    <DetailRow label="CIOC (Olympic)" value={country.cioc || "N/A"} mono />
+                                    <DetailRow label="FIFA Code" value={country.fifa || "N/A"} mono />
+                                    <DetailRow label="Status" value={country.status} />
+                                    <DetailRow label="Top Level Domain" value={country.tld?.join(", ")} mono />
+                                    <DetailRow label="Dial Code (IDD)" value={idd} mono />
+                                </div>
+                            </SectionCard>
+                        </motion.div>
 
                         {/* Time & Calendar */}
-                        <SectionCard icon={Clock} title="Time & Calendar">
-                            <div className="grid gap-0 sm:grid-cols-2">
-                                <DetailRow label="Timezones" value={country.timezones?.join(", ")} />
-                                <DetailRow label="Start of Week" value={country.startOfWeek ? country.startOfWeek.charAt(0).toUpperCase() + country.startOfWeek.slice(1) : "N/A"} />
-                            </div>
-                        </SectionCard>
+                        <motion.div variants={blockVariants}>
+                            <SectionCard icon={Clock} title="Time & Calendar">
+                                <div className="grid gap-0 sm:grid-cols-2">
+                                    <DetailRow label="Timezones" value={country.timezones?.join(", ")} />
+                                    <DetailRow label="Start of Week" value={country.startOfWeek ? country.startOfWeek.charAt(0).toUpperCase() + country.startOfWeek.slice(1) : "N/A"} />
+                                </div>
+                            </SectionCard>
+                        </motion.div>
 
                         {/* Transport */}
-                        <SectionCard icon={Car} title="Transport & Driving">
-                            <div className="grid gap-0 sm:grid-cols-2">
-                                <DetailRow label="Driving Side" value={country.car?.side ? country.car.side.charAt(0).toUpperCase() + country.car.side.slice(1) : "N/A"} />
-                                <DetailRow label="Vehicle Signs" value={carSigns} />
-                            </div>
-                        </SectionCard>
+                        <motion.div variants={blockVariants}>
+                            <SectionCard icon={Car} title="Transport & Driving">
+                                <div className="grid gap-0 sm:grid-cols-2">
+                                    <DetailRow label="Driving Side" value={country.car?.side ? country.car.side.charAt(0).toUpperCase() + country.car.side.slice(1) : "N/A"} />
+                                    <DetailRow label="Vehicle Signs" value={carSigns} />
+                                </div>
+                            </SectionCard>
+                        </motion.div>
 
                         {/* Postal */}
-                        <SectionCard icon={Mail} title="Postal Code">
-                            <div className="grid gap-0 sm:grid-cols-2">
-                                <DetailRow label="Format" value={postalFormat} mono />
-                                <DetailRow label="Regex Pattern" value={postalRegex} mono />
-                            </div>
-                        </SectionCard>
+                        <motion.div variants={blockVariants}>
+                            <SectionCard icon={Mail} title="Postal Code">
+                                <div className="grid gap-0 sm:grid-cols-2">
+                                    <DetailRow label="Format" value={postalFormat} mono />
+                                    <DetailRow label="Regex Pattern" value={postalRegex} mono />
+                                </div>
+                            </SectionCard>
+                        </motion.div>
 
                         {/*Borders  */}
-                        <SectionCard icon={Signpost} title="Borders">
-                            {borders.length > 0 ? (
-                                <div className="flex flex-wrap gap-2">
-                                    {borders.map((border) => (
-                                        <button
-                                            key={border}
-                                            className="inline-flex items-center gap-1.5 rounded-xl border border-cyan-500/20 bg-cyan-400/5 px-3 py-1.5 text-sm font-semibold text-cyan-200 transition hover:bg-cyan-400/15 hover:border-cyan-400/40"
-                                        >
-                                            <Navigation size={12} /> {border}
-                                        </button>
-                                    ))}
-                                </div>
-                            ) : (
-                                <p className="text-sm text-slate-400">No land borders (Island / Coastal nation).</p>
-                            )}
-                        </SectionCard>
+                        <motion.div variants={blockVariants}>
+                            <SectionCard icon={Signpost} title="Borders">
+                                {borders.length > 0 ? (
+                                    <div className="flex flex-wrap gap-2">
+                                        {borders.map((border) => (
+                                            <button
+                                                key={border}
+                                                className="inline-flex items-center gap-1.5 rounded-xl border border-cyan-500/20 bg-cyan-400/5 px-3 py-1.5 text-sm font-semibold text-cyan-200 transition hover:bg-cyan-400/15 hover:border-cyan-400/40"
+                                            >
+                                                <Navigation size={12} /> {border}
+                                            </button>
+                                        ))}
+                                    </div>
+                                ) : (
+                                    <p className="text-sm text-slate-400">No land borders (Island / Coastal nation).</p>
+                                )}
+                            </SectionCard>
+                        </motion.div>
 
                         {/* Alt Spellings */}
-                        <SectionCard icon={BookOpen} title="Alternative Spellings">
-                            <div className="flex flex-wrap gap-2">
-                                {country.altSpellings?.map((spelling, idx) => (
-                                    <span key={idx} className="rounded-lg border border-slate-700/40 bg-slate-800/30 px-3 py-1.5 text-sm text-slate-200">
-                                        {spelling}
-                                    </span>
-                                )) || <p className="text-sm text-slate-400">N/A</p>}
-                            </div>
-                        </SectionCard>
-
+                        <motion.div variants={blockVariants}>
+                            <SectionCard icon={BookOpen} title="Alternative Spellings">
+                                <div className="flex flex-wrap gap-2">
+                                    {country.altSpellings?.map((spelling, idx) => (
+                                        <span key={idx} className="rounded-lg border border-slate-700/40 bg-slate-800/30 px-3 py-1.5 text-sm text-slate-200">
+                                            {spelling}
+                                        </span>
+                                    )) || <p className="text-sm text-slate-400">N/A</p>}
+                                </div>
+                            </SectionCard>
+                        </motion.div>
                         {/*Flag Description */}
                         {country.flags?.alt && (
-                            <SectionCard icon={Flag} title="Flag Description">
-                                <p className="text-sm leading-relaxed text-slate-300">
-                                    {country.flags.alt}
-                                </p>
-                            </SectionCard>
+                            <motion.div variants={blockVariants}>
+                                <SectionCard icon={Flag} title="Flag Description">
+                                    <p className="text-sm leading-relaxed text-slate-300">
+                                        {country.flags.alt}
+                                    </p>
+                                </SectionCard>
+                            </motion.div>
                         )}
 
                         {/*  Translations */}
@@ -411,65 +434,67 @@ export const CountryDetails = () => {
                             const transPages = generatePagination(totalTransPages, translationPage);
 
                             return (
-                                <SectionCard icon={Earth} title={`Translations (${translationEntries.length} languages)`}>
-                                    <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-                                        {visibleTranslations.map(([code, trans]) => (
-                                            <motion.div
-                                                key={code}
-                                                initial={{ opacity: 0, y: 10 }}
-                                                animate={{ opacity: 1, y: 0 }}
-                                                transition={{ duration: 0.3 }}
-                                                className="rounded-xl border border-slate-700/30 bg-slate-800/20 p-3 transition-colors hover:bg-slate-800/40"
-                                            >
-                                                <p className="text-xs font-bold uppercase tracking-wider text-cyan-400 mb-1">
-                                                    {LANG_CODE_MAP[code] || code}
-                                                </p>
-                                                <p className="text-sm text-white font-medium">{trans.official}</p>
-                                                {trans.common !== trans.official && (
-                                                    <p className="text-xs text-slate-400 mt-0.5">{trans.common}</p>
-                                                )}
-                                            </motion.div>
-                                        ))}
-                                    </div>
-
-                                    {/* Pagination Controls */}
-                                    {totalTransPages > 1 && (
-                                        <div className="mt-6 flex w-full flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
-                                            <motion.button
-                                                whileHover={{ scale: 1.03, x: -2 }}
-                                                whileTap={{ scale: 0.97 }}
-                                                onClick={() => setTranslationPage((prev) => prev - 1)}
-                                                disabled={translationPage === 0}
-                                                className="inline-flex items-center justify-center shrink-0 rounded-full border border-cyan-500/30 bg-slate-800/85 p-2.5 text-sm font-semibold text-cyan-200 backdrop-blur-md transition-colors hover:bg-slate-700 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-slate-800/85"
-                                            >
-                                                <ChevronLeft className="h-5 w-5" />
-                                            </motion.button>
-
-                                            <div className="flex items-center gap-1.5">
-                                                {transPages.map((page, index) => (
-                                                    <button
-                                                        key={index}
-                                                        disabled={page === "..."}
-                                                        className={`inline-flex items-center justify-center min-w-[2.25rem] rounded-full px-2.5 py-1.5 text-xs transition-colors ${page === "..." ? "bg-transparent cursor-default text-white/50 !min-w-0 !px-1" : translationPage === page ? 'bg-cyan-500/50 font-bold text-white' : 'border border-cyan-500/20 bg-slate-800/85 font-semibold text-cyan-100 backdrop-blur-md hover:bg-slate-700'}`}
-                                                        onClick={() => page !== "..." && setTranslationPage(page)}
-                                                    >
-                                                        {page !== "..." ? page + 1 : '...'}
-                                                    </button>
-                                                ))}
-                                            </div>
-
-                                            <motion.button
-                                                whileHover={{ scale: 1.03, x: 2 }}
-                                                whileTap={{ scale: 0.97 }}
-                                                onClick={() => setTranslationPage((prev) => prev + 1)}
-                                                disabled={translationPage === totalTransPages - 1}
-                                                className="inline-flex items-center justify-center shrink-0 rounded-full border border-cyan-500/30 bg-slate-800/85 p-2.5 text-sm font-semibold text-cyan-200 backdrop-blur-md transition-colors hover:bg-slate-700 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-slate-800/85"
-                                            >
-                                                <ChevronRight className="h-5 w-5" />
-                                            </motion.button>
+                                <motion.div variants={blockVariants} className="w-full">
+                                    <SectionCard icon={Earth} title={`Translations (${translationEntries.length} languages)`}>
+                                        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                                            {visibleTranslations.map(([code, trans]) => (
+                                                <motion.div
+                                                    key={code}
+                                                    initial={{ opacity: 0, y: 10 }}
+                                                    animate={{ opacity: 1, y: 0 }}
+                                                    transition={{ duration: 0.3 }}
+                                                    className="rounded-xl border border-slate-700/30 bg-slate-800/20 p-3 transition-colors hover:bg-slate-800/40"
+                                                >
+                                                    <p className="text-xs font-bold uppercase tracking-wider text-cyan-400 mb-1">
+                                                        {LANG_CODE_MAP[code] || code}
+                                                    </p>
+                                                    <p className="text-sm text-white font-medium">{trans.official}</p>
+                                                    {trans.common !== trans.official && (
+                                                        <p className="text-xs text-slate-400 mt-0.5">{trans.common}</p>
+                                                    )}
+                                                </motion.div>
+                                            ))}
                                         </div>
-                                    )}
-                                </SectionCard>
+
+                                        {/* Pagination Controls */}
+                                        {totalTransPages > 1 && (
+                                            <div className="mt-6 flex w-full flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
+                                                <motion.button
+                                                    whileHover={{ scale: 1.03, x: -2 }}
+                                                    whileTap={{ scale: 0.97 }}
+                                                    onClick={() => setTranslationPage((prev) => prev - 1)}
+                                                    disabled={translationPage === 0}
+                                                    className="inline-flex items-center justify-center shrink-0 rounded-full border border-cyan-500/30 bg-slate-800/85 p-2.5 text-sm font-semibold text-cyan-200 backdrop-blur-md transition-colors hover:bg-slate-700 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-slate-800/85"
+                                                >
+                                                    <ChevronLeft className="h-5 w-5" />
+                                                </motion.button>
+
+                                                <div className="flex items-center gap-1.5">
+                                                    {transPages.map((page, index) => (
+                                                        <button
+                                                            key={index}
+                                                            disabled={page === "..."}
+                                                            className={`inline-flex items-center justify-center min-w-[2.25rem] rounded-full px-2.5 py-1.5 text-xs transition-colors ${page === "..." ? "bg-transparent cursor-default text-white/50 !min-w-0 !px-1" : translationPage === page ? 'bg-cyan-500/50 font-bold text-white' : 'border border-cyan-500/20 bg-slate-800/85 font-semibold text-cyan-100 backdrop-blur-md hover:bg-slate-700'}`}
+                                                            onClick={() => page !== "..." && setTranslationPage(page)}
+                                                        >
+                                                            {page !== "..." ? page + 1 : '...'}
+                                                        </button>
+                                                    ))}
+                                                </div>
+
+                                                <motion.button
+                                                    whileHover={{ scale: 1.03, x: 2 }}
+                                                    whileTap={{ scale: 0.97 }}
+                                                    onClick={() => setTranslationPage((prev) => prev + 1)}
+                                                    disabled={translationPage === totalTransPages - 1}
+                                                    className="inline-flex items-center justify-center shrink-0 rounded-full border border-cyan-500/30 bg-slate-800/85 p-2.5 text-sm font-semibold text-cyan-200 backdrop-blur-md transition-colors hover:bg-slate-700 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-slate-800/85"
+                                                >
+                                                    <ChevronRight className="h-5 w-5" />
+                                                </motion.button>
+                                            </div>
+                                        )}
+                                    </SectionCard>
+                                </motion.div>
                             );
                         })()}
 

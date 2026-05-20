@@ -1,6 +1,6 @@
-import { useEffect, useState, useTransition } from "react";
+import { useEffect, useState, useTransition, useRef } from "react";
 import { getCountryData } from "../API/postApi.jsx";
-import { ChevronLeft, ChevronRight, Loader } from "lucide-react";
+import { ChevronLeft, ChevronRight, Loader, List, ChevronDown } from "lucide-react";
 import { CountryCard } from "../Components/Layout/CountryCard.jsx";
 import { SearchFilter } from "../Components/UI/SearchFilter.jsx";
 import { motion } from "framer-motion";
@@ -17,6 +17,18 @@ export const Country = () => {
 
   const [currentPageIndex, setCurrentPageIndex] = useState(0);
   const [pageSize, setPageSize] = useState(8);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   const searchCountry = (country) => {
     if (search) {
@@ -48,6 +60,8 @@ export const Country = () => {
   const handleRight = () => {
     setCurrentPageIndex((prev) => prev + 1);
   };
+
+  console.log(totalPages)
 
 
   useEffect(() => {
@@ -82,30 +96,64 @@ export const Country = () => {
         Our Countries In The World
       </motion.h1>
 
-      <div className="mb-6 flex justify-end">
-        <label className="flex items-center gap-2 text-sm text-slate-300">
-          Items per page:
-          <select
-            value={pageSize}
-            onChange={(e) => {
-              setPageSize(Number(e.target.value));
-              setCurrentPageIndex(0);
-            }}
-            className="cursor-pointer rounded-lg border border-cyan-500/30 bg-slate-800/85 px-4 py-2 text-cyan-100 outline-none backdrop-blur-md transition-colors hover:border-cyan-400 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400"
-          >
-            <option value={8}>8</option>
-            <option value={16}>16</option>
-            <option value={24}>24</option>
-            <option value={32}>32</option>
-            <option value={filterCountries.length || 100}>All</option>
-          </select>
-        </label>
+      <div className="relative z-10 mb-6 flex justify-end">
+        <div className="flex items-center gap-3 text-sm text-slate-300">
+          <span>Items per page:</span>
+          <div className="relative group" ref={dropdownRef}>
+            <div className="absolute inset-x-0 -bottom-px h-1 w-full bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-0 transition-opacity duration-500 group-focus-within:opacity-100" />
+            <button
+              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+              className="flex items-center gap-2 rounded-xl border border-cyan-500/30 bg-slate-800/85 py-2 pl-3 pr-2 text-cyan-100 outline-none backdrop-blur-md transition-colors hover:border-cyan-400 focus:border-cyan-400"
+            >
+              <List size={16} className="text-cyan-500/70" />
+              <span className="w-8 text-left">{pageSize === filterCountries.length || pageSize >= 100 ? "All" : pageSize}</span>
+              <ChevronDown
+                size={16}
+                className={`text-cyan-500/70 transition-transform duration-300 ${isDropdownOpen ? 'rotate-180' : ''}`}
+              />
+            </button>
+
+            <motion.div
+              initial="hidden"
+              animate={isDropdownOpen ? "visible" : "hidden"}
+              variants={{
+                hidden: { opacity: 0, y: -10, scale: 0.95, pointerEvents: "none" },
+                visible: { opacity: 1, y: 0, scale: 1, pointerEvents: "auto", transition: { duration: 0.2 } },
+              }}
+              className="absolute right-0 top-full z-50 mt-2 w-32 overflow-hidden rounded-xl border border-slate-700/50 bg-slate-900/95 shadow-[0_10px_25px_rgba(0,0,0,0.5)] backdrop-blur-xl p-1 space-y-1 z-130"
+            >
+              {[8, 16, 24, 32, { label: "All", value: filterCountries.length || 100 }].map((option) => {
+                const optValue = typeof option === "object" ? option.value : option;
+                const optLabel = typeof option === "object" ? option.label : option;
+                const isActive = pageSize === optValue;
+
+                return (
+                  <button
+                    key={optLabel}
+                    onClick={() => {
+                      setPageSize(optValue);
+                      setCurrentPageIndex(0);
+                      setIsDropdownOpen(false);
+                    }}
+                    className={`block w-full px-4 py-2.5 text-left text-sm transition-colors rounded-xl ${isActive
+                      ? "bg-cyan-500/20 text-cyan-300 font-medium"
+                      : "text-slate-300 hover:bg-slate-800/80 hover:text-cyan-100"
+                      }`}
+                  >
+                    {optLabel}
+                  </button>
+                );
+              })}
+            </motion.div>
+          </div>
+        </div>
       </div>
 
       <motion.ul
+        key={`${currentPageIndex}-${search}-${filter}`}
         variants={{
           hidden: {},
-          show: { transition: { staggerChildren: 0.08, delayChildren: 0.05 } },
+          show: { transition: { staggerChildren: 0.1, delayChildren: 0.1 } },
         }}
         initial="hidden"
         animate="show"

@@ -3,12 +3,23 @@ import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 
 const cardVariants = {
-    hidden: { opacity: 0, y: 24, scale: 0.98 },
+    hidden: { opacity: 0, y: 24, scale: 0.98, filter: "blur(5px)" },
     show: {
         opacity: 1,
         y: 0,
         scale: 1,
-        transition: { duration: 0.7, ease: "easeOut" },
+        filter: "blur(0px)",
+        transition: { duration: 0.7, ease: "easeOut", staggerChildren: 0.1 },
+    },
+};
+
+const itemVariants = {
+    hidden: { opacity: 0, y: 10, filter: "blur(4px)" },
+    show: {
+        opacity: 1,
+        y: 0,
+        filter: "blur(0px)",
+        transition: { duration: 0.5, ease: "easeOut" },
     },
 };
 
@@ -21,7 +32,7 @@ export const CountryCard = ({ Country }) => {
         transition={{ type: "spring", stiffness: 260, damping: 20 }}
         className="overflow-hidden rounded-xl border border-white/10 bg-slate-900/65 shadow-lg backdrop-blur will-change-transform group"
     >
-        <motion.img
+        <img
             src={flags.svg || flags.png}
             alt={flags.alt || name.common}
             width={320}
@@ -30,22 +41,24 @@ export const CountryCard = ({ Country }) => {
             loading="lazy"
             decoding="async"
         />
-        <div className="space-y-2 p-5">
-            <p className="font-display text-xl font-semibold text-white">
+        <div className="space-y-2 p-5 flex flex-col">
+            <motion.p variants={itemVariants} className="font-display text-xl font-semibold text-white">
                 {name.common.length > 18 ? `${name.common.slice(0, 18)}...` : name.common}
-            </p>
-            <p className="text-sm text-slate-300"><span className="font-semibold text-slate-100">Population:</span> {population.toLocaleString()}</p>
-            <p className="text-sm text-slate-300"><span className="font-semibold text-slate-100">Region:</span> {region}</p>
-            <p className="text-sm text-slate-300"><span className="font-semibold text-slate-100">Capital:</span> {capital?.[0] || "N/A"}</p>
-            <NavLink to={`/country/${Country.name.common}`}>
-                <motion.button
-                    whileHover={{ scale: 1.03, x: 2 }}
-                    whileTap={{ scale: 0.97 }}
-                    className="mt-3 inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-slate-800/85 px-4 py-2 text-sm font-semibold text-cyan-200 backdrop-blur-md transition-colors hover:bg-slate-700"
-                >
-                    Explore {name.common} <ArrowRight size={16} aria-hidden="true" />
-                </motion.button>
-            </NavLink>
+            </motion.p>
+            <motion.p variants={itemVariants} className="text-sm text-slate-300"><span className="font-semibold text-slate-100">Population:</span> {population.toLocaleString()}</motion.p>
+            <motion.p variants={itemVariants} className="text-sm text-slate-300"><span className="font-semibold text-slate-100">Region:</span> {region}</motion.p>
+            <motion.p variants={itemVariants} className="text-sm text-slate-300"><span className="font-semibold text-slate-100">Capital:</span> {capital?.[0] || "N/A"}</motion.p>
+            <motion.div variants={itemVariants}>
+                <NavLink to={`/country/${Country.name.common}`} className="block">
+                    <motion.button
+                        whileHover={{ scale: 1.03, x: 2 }}
+                        whileTap={{ scale: 0.97 }}
+                        className="mt-3 inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-slate-800/85 px-4 py-2 text-sm font-semibold text-cyan-200 backdrop-blur-md transition-colors hover:bg-slate-700"
+                    >
+                        Explore {name.common} <ArrowRight size={16} aria-hidden="true" />
+                    </motion.button>
+                </NavLink>
+            </motion.div>
         </div>
     </motion.li>
 }
