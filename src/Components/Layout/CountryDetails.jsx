@@ -9,7 +9,7 @@ import { useEffect, useState, useTransition } from "react";
 import { motion } from "framer-motion";
 import { generatePagination } from "../../utils/generatePagination.js";
 import { getHelloAudioList } from "../../utils/helloAudio.js";
-import LoadingFallback from '../UI/LoadingFallback.jsx'
+import { CountryDetailsSkeleton } from '../UI/Skeletons.jsx'
 import { SectionCard } from '../UI/SectionCard.jsx';
 import { DetailRow } from '../UI/DetailRow.jsx';
 import { Badge } from '../UI/Badge.jsx';
@@ -63,7 +63,7 @@ export const CountryDetails = () => {
         });
     }, [params.id]);
 
-    if (isPending) return <LoadingFallback />;
+    if (isPending) return <CountryDetailsSkeleton />;
 
     if (!country) return null;
 

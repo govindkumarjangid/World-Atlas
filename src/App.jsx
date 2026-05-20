@@ -2,6 +2,15 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Suspense, lazy } from "react";
 import { AppLayout } from "./Components/Layout/AppLayout";
 import LoadingFallback from "./Components/UI/LoadingFallback";
+import {
+  HomeSkeleton,
+  AboutSkeleton,
+  CountryPageSkeleton,
+  CountryDetailsSkeleton,
+  MapPageSkeleton,
+  ContactSkeleton,
+  WonderDetailsSkeleton
+} from "./Components/UI/Skeletons";
 
 const Home = lazy(() => import("./Pages/Home").then(m => ({ default: m.Home || m.default })));
 const About = lazy(() => import("./Pages/About").then(m => ({ default: m.About || m.default })));
@@ -20,31 +29,31 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Suspense fallback={<LoadingFallback />}><Home /></Suspense>
+        element: <Suspense fallback={<HomeSkeleton />}><Home /></Suspense>
       },
       {
         path: "/about",
-        element: <Suspense fallback={<LoadingFallback />}><About /></Suspense>
+        element: <Suspense fallback={<AboutSkeleton />}><About /></Suspense>
       },
       {
         path: "/country",
-        element: <Suspense fallback={<LoadingFallback />}><Country /></Suspense>
+        element: <Suspense fallback={<CountryPageSkeleton />}><Country /></Suspense>
       },
       {
         path: "/country/:id",
-        element: <Suspense fallback={<LoadingFallback />}><CountryDetails /></Suspense>
+        element: <Suspense fallback={<CountryDetailsSkeleton />}><CountryDetails /></Suspense>
       },
       {
         path: "/wonders/:id",
-        element: <Suspense fallback={<LoadingFallback />}><WonderDetails /></Suspense>
+        element: <Suspense fallback={<WonderDetailsSkeleton />}><WonderDetails /></Suspense>
       },
       {
         path: "/map",
-        element: <Suspense fallback={<LoadingFallback />}><MapPage /></Suspense>
+        element: <Suspense fallback={<MapPageSkeleton />}><MapPage /></Suspense>
       },
       {
         path: "/contact",
-        element: <Suspense fallback={<LoadingFallback />}><Contact /></Suspense>
+        element: <Suspense fallback={<ContactSkeleton />}><Contact /></Suspense>
       }
     ]
   }

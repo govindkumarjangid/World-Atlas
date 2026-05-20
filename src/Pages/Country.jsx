@@ -4,7 +4,7 @@ import { ChevronLeft, ChevronRight, Loader, List, ChevronDown } from "lucide-rea
 import { CountryCard } from "../Components/Layout/CountryCard.jsx";
 import { SearchFilter } from "../Components/UI/SearchFilter.jsx";
 import { motion } from "framer-motion";
-import LoadingFallback from '../Components/UI/LoadingFallback.jsx'
+import { CountryPageSkeleton } from '../Components/UI/Skeletons.jsx'
 import { generatePagination } from '../utils/generatePagination.js'
 
 export const Country = () => {
@@ -72,7 +72,7 @@ export const Country = () => {
   }, []);
 
 
-  if (isPending) return <LoadingFallback />;
+  if (isPending) return <CountryPageSkeleton />;
 
 
   return (
