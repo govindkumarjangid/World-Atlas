@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import Globe from "globe.gl";
 import { Globe2, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const GlobeComponent = () => {
     const globeRef = useRef(null);
@@ -106,7 +107,7 @@ const GlobeComponent = () => {
         globe.controls().minDistance = 120;
         globe.controls().maxDistance = 420;
         globe.controls().autoRotate = true;
-        globe.controls().autoRotateSpeed = 0.35;
+        globe.controls().autoRotateSpeed = 0.5;
 
         globe.onGlobeClick((coords) => {
             const nearestCountry = findNearestCountry(coords.lat, coords.lng, countriesRef.current);
@@ -213,41 +214,49 @@ const GlobeComponent = () => {
                     </div>
                 )}
 
-                {selectedInfo && (
-                    <aside className="absolute right-3 bottom-3 left-3 z-20 max-h-[62vh] overflow-y-auto rounded-xl border border-white/15 bg-slate-900/85 p-4 text-slate-300 shadow-2xl backdrop-blur-md sm:max-h-[58vh] lg:left-auto lg:w-[380px]">
-                        <div className="mb-3 flex items-center justify-between">
-                            <h3 className="font-display text-lg font-semibold text-white">Location Details</h3>
-                            <button
-                                type="button"
-                                onClick={() => setSelectedInfo(null)}
-                                className="inline-flex h-8 w-8 items-center justify-center rounded-xl border border-slate-700/60 bg-slate-800/80 text-slate-200 transition hover:bg-slate-700"
-                                aria-label="Close details"
-                            >
-                                <X size={16} />
-                            </button>
-                        </div>
+                <AnimatePresence>
+                    {selectedInfo && (
+                        <motion.aside
+                            initial={{ opacity: 0, scale: 0.95, y: 40 }}
+                            animate={{ opacity: 1, scale: 1, y: 0 }}
+                            exit={{ opacity: 0, scale: 0.95, y: 40 }}
+                            transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                            className="absolute right-3 bottom-3 left-3 z-20 max-h-[62vh] overflow-y-auto rounded-xl border border-white/15 bg-slate-900/85 p-4 text-slate-300 shadow-2xl backdrop-blur-md sm:max-h-[58vh] lg:left-auto lg:w-[380px]"
+                        >
+                            <div className="mb-3 flex items-center justify-between">
+                                <h3 className="font-display text-lg font-semibold text-white">Location Details</h3>
+                                <button
+                                    type="button"
+                                    onClick={() => setSelectedInfo(null)}
+                                    className="inline-flex h-8 w-8 items-center justify-center rounded-xl border border-slate-700/60 bg-slate-800/80 text-slate-200 transition hover:bg-slate-700 hover:text-white"
+                                    aria-label="Close details"
+                                >
+                                    <X size={16} />
+                                </button>
+                            </div>
 
-                        <div className="space-y-2 text-sm">
-                            <p><span className="font-semibold text-slate-100">Latitude:</span> {selectedInfo.lat.toFixed(4)}</p>
-                            <p><span className="font-semibold text-slate-100">Longitude:</span> {selectedInfo.lng.toFixed(4)}</p>
-                            <p><span className="font-semibold text-slate-100">Nearest Country:</span> {selectedInfo.nearestCountry?.name?.common || "N/A"}</p>
-                            <p><span className="font-semibold text-slate-100">Distance:</span> {selectedInfo.nearestCountry?.distanceKm ? `${selectedInfo.nearestCountry.distanceKm.toFixed(0)} km` : "N/A"}</p>
-                            <p><span className="font-semibold text-slate-100">Capital:</span> {selectedInfo.nearestCountry?.capital?.[0] || "N/A"}</p>
-                            <p><span className="font-semibold text-slate-100">Region:</span> {selectedInfo.nearestCountry?.region || "N/A"}</p>
-                            <p><span className="font-semibold text-slate-100">Sub Region:</span> {selectedInfo.nearestCountry?.subregion || "N/A"}</p>
-                            <p><span className="font-semibold text-slate-100">Population:</span> {selectedInfo.nearestCountry?.population?.toLocaleString() || "N/A"}</p>
-                            <p><span className="font-semibold text-slate-100">Languages:</span> {languageText}</p>
-                            <p><span className="font-semibold text-slate-100">Timezones:</span> {timezoneText}</p>
-                            {selectedInfo.nearestCountry?.flags?.png && (
-                                <img
-                                    src={selectedInfo.nearestCountry.flags.png}
-                                    alt={selectedInfo.nearestCountry.flags.alt || selectedInfo.nearestCountry.name?.common}
-                                    className="mt-3 h-[80%] w-[80%] rounded-xl border border-slate-700/50 object-cover"
-                                />
-                            )}
-                        </div>
-                    </aside>
-                )}
+                            <div className="space-y-2 text-sm">
+                                <p><span className="font-semibold text-slate-100">Latitude:</span> {selectedInfo.lat.toFixed(4)}</p>
+                                <p><span className="font-semibold text-slate-100">Longitude:</span> {selectedInfo.lng.toFixed(4)}</p>
+                                <p><span className="font-semibold text-slate-100">Nearest Country:</span> {selectedInfo.nearestCountry?.name?.common || "N/A"}</p>
+                                <p><span className="font-semibold text-slate-100">Distance:</span> {selectedInfo.nearestCountry?.distanceKm ? `${selectedInfo.nearestCountry.distanceKm.toFixed(0)} km` : "N/A"}</p>
+                                <p><span className="font-semibold text-slate-100">Capital:</span> {selectedInfo.nearestCountry?.capital?.[0] || "N/A"}</p>
+                                <p><span className="font-semibold text-slate-100">Region:</span> {selectedInfo.nearestCountry?.region || "N/A"}</p>
+                                <p><span className="font-semibold text-slate-100">Sub Region:</span> {selectedInfo.nearestCountry?.subregion || "N/A"}</p>
+                                <p><span className="font-semibold text-slate-100">Population:</span> {selectedInfo.nearestCountry?.population?.toLocaleString() || "N/A"}</p>
+                                <p><span className="font-semibold text-slate-100">Languages:</span> {languageText}</p>
+                                <p><span className="font-semibold text-slate-100">Timezones:</span> {timezoneText}</p>
+                                {selectedInfo.nearestCountry?.flags?.png && (
+                                    <img
+                                        src={selectedInfo.nearestCountry.flags.png}
+                                        alt={selectedInfo.nearestCountry.flags.alt || selectedInfo.nearestCountry.name?.common}
+                                        className="mt-3 h-[80%] w-[80%] rounded-xl border border-slate-700/50 object-cover"
+                                    />
+                                )}
+                            </div>
+                        </motion.aside>
+                    )}
+                </AnimatePresence>
             </div>
         </section>
     );
