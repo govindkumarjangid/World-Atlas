@@ -14,6 +14,7 @@ A modern, highly interactive web application built with **React** and **Tailwind
 ## ✨ Features
 
 - **Comprehensive Country Data:** Search, filter, and view deep encyclopedic data for any country including GDP, borders, currencies, timezones, coat of arms, IDs, demonyms, and multiple map links.
+- **REST Countries API Integration:** Dynamic and real-time data fetching using the REST Countries API, processed through optimized Axios network requests.
 - **Seven Wonders Showcase:** Detailed nested pages covering history, fast facts, and stunning HD imagery for the modern Seven Wonders.
 - **Top 10 Economies Dashboard:** Stay updated with the world's most powerful economies on the About page.
 - **Live HD World Map:** A dedicated route offering an interactive, high-definition satellite worldview.
@@ -43,23 +44,33 @@ A modern, highly interactive web application built with **React** and **Tailwind
 World-Atlas/
 ├── public/                 # Static assets (images, fonts, etc.)
 ├── src/
-│   ├── API/                # Axios routing and Local JSON data (wondersData, CountryData)
+│   ├── API/                # Axios routing and Local JSON data (wondersData, CountryData, Footerapi, postApi)
 │   ├── Components/
-│   │   ├── Layout/         # Core structural components (AppLayout, CountryDetails, CountryCard)
-│   │   └── UI/             # Reusable UI elements (Header, Footer, Hero, SearchFilter, Loader, Error)
+│   │   ├── Layout/         # Core structural components (AppLayout, CountryDetails, CountryCard, AboutCard, GlobeComponent, WonderCard)
+│   │   └── UI/             # Reusable UI elements (Header, Footer, HeroSection, SearchFilter, LoadingFallback, ErrorPage, etc.)
 │   ├── Pages/              # Primary route pages (Home, About, Country, Contact, WonderDetails, MapPage)
+│   ├── utils/              # Utility functions (generatePagination, helloAudio)
 │   ├── App.css             # Global custom CSS / WebKit Overrides
 │   ├── App.jsx             # React Router configuration
 │   └── main.jsx            # Application entry point
 ├── index.html              # HTML template
+├── eslint.config.js        # ESLint configuration
+├── postcss.config.js       # PostCSS configuration
 ├── tailwind.config.js      # Tailwind CSS configuration
 ├── vite.config.js          # Vite build configuration
+├── vercel.json             # Vercel deployment configuration
 └── package.json            # Project dependencies and scripts
 ```
 
 ---
 
-## Installation & Setup
+## Installation & Project Setup
+
+This project leverages modern tooling for a fast, optimized development experience:
+- **Vite & SWC:** Provides extremely fast Hot Module Replacement (HMR) and optimized build processes.
+- **Tailwind CSS & PostCSS:** Utility-first styling with automatic vendor prefixing.
+- **ESLint:** Configured to enforce code quality and catch potential errors early.
+- **Vercel Integration:** Ready for seamless cloud deployment via `vercel.json`.
 
 Follow these steps to get the project running locally on your machine:
 
