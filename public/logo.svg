@@ -1,6 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 600 620" width="100%" height="100%">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="40 20 520 550" width="100%" height="100%">
   <defs>
-    <!-- Premium Metallic Gold Gradients -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+
     <linearGradient id="gold" x1="0" y1="1" x2="1" y2="0">
       <stop offset="0%" stop-color="#9A7A1E"/>
       <stop offset="25%" stop-color="#DABB60"/>
@@ -8,26 +11,24 @@
       <stop offset="75%" stop-color="#C9A84C"/>
       <stop offset="100%" stop-color="#9A7A1E"/>
     </linearGradient>
-    
+
     <linearGradient id="goldLight" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#FFF5C3"/>
       <stop offset="50%" stop-color="#D4B058"/>
       <stop offset="100%" stop-color="#8B6914"/>
     </linearGradient>
 
-    <!-- Navy Blue Gradients with Deep Vignette -->
     <radialGradient id="navyBg" cx="50%" cy="45%" r="55%">
       <stop offset="0%" stop-color="#1A3E68"/>
       <stop offset="65%" stop-color="#0B1D33"/>
       <stop offset="100%" stop-color="#050E1A"/>
     </radialGradient>
-    
+
     <radialGradient id="navyInner" cx="50%" cy="45%" r="50%">
       <stop offset="0%" stop-color="#152D4A"/>
       <stop offset="100%" stop-color="#081424"/>
     </radialGradient>
 
-    <!-- Gorgeous 3D Ocean Gradient -->
     <radialGradient id="oceanGrad" cx="35%" cy="30%" r="65%" fx="35%" fy="30%">
       <stop offset="0%" stop-color="#8BEAE0"/>
       <stop offset="25%" stop-color="#3CBAC7"/>
@@ -36,120 +37,59 @@
       <stop offset="100%" stop-color="#052044"/>
     </radialGradient>
 
-    <!-- Specular Highlight for Globe Gloss -->
     <radialGradient id="globeShine" cx="30%" cy="25%" r="40%">
       <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.5"/>
       <stop offset="50%" stop-color="#FFFFFF" stop-opacity="0.1"/>
       <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
     </radialGradient>
 
-    <!-- Landmass Gradients -->
-    <linearGradient id="landGreen" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#D3F5A8"/>
-      <stop offset="35%" stop-color="#7EC379"/>
-      <stop offset="70%" stop-color="#3B9353"/>
-      <stop offset="100%" stop-color="#1E5C33"/>
-    </linearGradient>
-
-    <!-- Banner Gradient -->
     <linearGradient id="bannerGrad" x1="0%" y1="0%" x2="0%" y2="100%">
       <stop offset="0%" stop-color="#163457"/>
       <stop offset="100%" stop-color="#09182C"/>
     </linearGradient>
 
-    <!-- Filters for Premium Depth -->
-    <filter id="shadow" x="-15%" y="-15%" width="130%" height="135%">
-      <feDropShadow dx="0" dy="5" stdDeviation="7" flood-color="#000000" flood-opacity="0.45"/>
-    </filter>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="1.5" result="blur"/>
-      <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-
-    <!-- Globe Clip Path -->
     <clipPath id="globeClip">
       <circle cx="300" cy="280" r="145"/>
     </clipPath>
 
-    <!-- Concentric Text Paths -->
-    <!-- Top Arc (WORLD ATLAS) - Radius 195, perfectly concentric -->
     <path id="topArc" d="M 105,280 A 195,195 0 0,1 495,280" fill="none"/>
-    
-    <!-- Bottom Arc (PROJECT) - Radius 235, perfectly concentric -->
     <path id="bottomArc" d="M 65,280 A 235,235 0 0,0 535,280" fill="none"/>
-
-    <!-- Concentric Banner Arc - Radius 262, perfectly concentric -->
     <path id="bannerArc" d="M 98,452 A 262,262 0 0,0 502,452" fill="none"/>
   </defs>
 
-  <!-- ============================================ -->
-  <!-- CONCENTRIC BANNER RIBBON (Behind Main Badge) -->
-  <!-- ============================================ -->
   <g filter="url(#shadow)">
-    <!-- Left Fold / Tail -->
     <path d="M 80,450 L 105,430 L 105,470 L 80,490 Z" fill="#071324" stroke="url(#gold)" stroke-width="1.5"/>
     <path d="M 80,490 L 95,470 L 80,450 Z" fill="#040B14"/>
-    
-    <!-- Right Fold / Tail -->
+
     <path d="M 520,450 L 495,430 L 495,470 L 520,490 Z" fill="#071324" stroke="url(#gold)" stroke-width="1.5"/>
     <path d="M 520,450 L 505,470 L 520,490 Z" fill="#040B14"/>
-    
-    <!-- Main Banner Body (Concentric to Outer Ring) -->
-    <path d="M 105,430 A 246,246 0 0,0 495,430 L 495,470 A 276,276 0 0,1 105,470 Z" 
+
+    <path d="M 105,430 A 246,246 0 0,0 495,430 L 495,470 A 276,276 0 0,1 105,470 Z"
           fill="url(#bannerGrad)" stroke="url(#gold)" stroke-width="2.2" stroke-linejoin="round"/>
   </g>
 
-  <!-- ============================================ -->
-  <!-- MAIN OUTER GOLD BADGE -->
-  <!-- ============================================ -->
-  <!-- Outer Gold Ring -->
   <circle cx="300" cy="280" r="250" fill="url(#gold)" filter="url(#shadow)"/>
-  
-  <!-- Outer Navy Circle -->
   <circle cx="300" cy="280" r="242" fill="url(#navyBg)"/>
-  
-  <!-- Thin Gold Inner Accents -->
+
   <circle cx="300" cy="280" r="234" fill="none" stroke="#8E6D18" stroke-width="1.2" opacity="0.6"/>
   <circle cx="300" cy="280" r="231" fill="none" stroke="#DABB60" stroke-width="0.6" opacity="0.4"/>
 
-  <!-- Inner Gold Ring -->
   <circle cx="300" cy="280" r="185" fill="none" stroke="url(#gold)" stroke-width="4.5"/>
   <circle cx="300" cy="280" r="180" fill="url(#navyInner)"/>
 
-  <!-- ============================================ -->
-  <!-- DIAL POINTERS & DECORATIVE DETAILS           -->
-  <!-- ============================================ -->
-  <!-- Left horizontal pointer & diamond -->
   <line x1="48" y1="280" x2="115" y2="280" stroke="url(#gold)" stroke-width="3" stroke-linecap="round"/>
   <polygon points="64,270 74,280 64,290 54,280" fill="url(#gold)"/>
 
-  <!-- Right horizontal pointer & diamond -->
   <line x1="485" y1="280" x2="552" y2="280" stroke="url(#gold)" stroke-width="3" stroke-linecap="round"/>
   <polygon points="536,270 546,280 536,290 526,280" fill="url(#gold)"/>
 
-  <!-- Dial Indicators around the Globe (Cardinal Directions) -->
-  <!-- North (12 o'clock) -->
   <polygon points="300,132 309,146 291,146" fill="url(#gold)"/>
-  
-  <!-- East (3 o'clock) -->
   <polygon points="448,280 434,271 434,289" fill="url(#gold)"/>
-  
-  <!-- West (9 o'clock) -->
   <polygon points="152,280 166,271 166,289" fill="url(#gold)"/>
 
-  <!-- ============================================ -->
-  <!-- Stylized Globe Background & Atmosphere       -->
-  <!-- ============================================ -->
   <circle cx="300" cy="280" r="145" fill="url(#oceanGrad)" filter="url(#shadow)"/>
 
-  <!-- ============================================ -->
-  <!-- GLOBE LANDMASSES & GRID LINES (CLIPPED) -->
-  <!-- ============================================ -->
   <g clip-path="url(#globeClip)">
-    <!-- Latitude Curves (Parallels) -->
     <ellipse cx="300" cy="165" rx="130" ry="25" fill="none" stroke="rgba(255,255,255,0.22)" stroke-width="1"/>
     <ellipse cx="300" cy="205" rx="140" ry="30" fill="none" stroke="rgba(255,255,255,0.22)" stroke-width="1"/>
     <ellipse cx="300" cy="242" rx="145" ry="33" fill="none" stroke="rgba(255,255,255,0.22)" stroke-width="1"/>
@@ -158,102 +98,33 @@
     <ellipse cx="300" cy="355" rx="140" ry="30" fill="none" stroke="rgba(255,255,255,0.22)" stroke-width="1"/>
     <ellipse cx="300" cy="395" rx="130" ry="25" fill="none" stroke="rgba(255,255,255,0.22)" stroke-width="1"/>
 
-    <!-- Longitude Curves (Meridians) -->
     <ellipse cx="300" cy="280" rx="0" ry="145" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1.2"/>
     <ellipse cx="300" cy="280" rx="30" ry="145" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
     <ellipse cx="300" cy="280" rx="60" ry="145" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
     <ellipse cx="300" cy="280" rx="90" ry="145" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
     <ellipse cx="300" cy="280" rx="120" ry="145" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
-
-    <!-- Beautiful, High-Fidelity Stylized Continents -->
-    <!-- Greenland -->
-    <path d="M 245,135 C 252,122 275,120 282,132 C 286,140 282,154 270,161 C 258,168 248,160 245,135 Z" 
-          fill="url(#landGreen)" stroke="#1A4D22" stroke-width="0.8"/>
-          
-    <!-- North America (High Fidelity Trace) -->
-    <path d="M 160,172 C 168,155 182,146 198,140 C 215,134 232,140 240,150 C 248,160 250,174 251,188 C 248,198 240,208 238,218 C 236,228 240,238 244,248 C 240,254 233,256 226,251 C 218,244 213,234 208,224 C 203,214 196,204 190,194 C 183,184 170,181 160,172 Z" 
-          fill="url(#landGreen)" stroke="#1A4D22" stroke-width="0.8"/>
-    <!-- Small North America Islands -->
-    <circle cx="168" cy="158" r="2.5" fill="url(#landGreen)"/>
-    <circle cx="162" cy="164" r="2" fill="url(#landGreen)"/>
-
-    <!-- Central America Link -->
-    <path d="M 226,251 C 232,257 230,269 226,281 C 222,293 218,301 216,309 C 216,315 220,317 224,315 C 228,313 232,305 228,297 Z" 
-          fill="url(#landGreen)" stroke="#1A4D22" stroke-width="0.5"/>
-
-    <!-- South America (High Fidelity Teardrop) -->
-    <path d="M 224,315 C 230,309 238,315 244,327 C 250,339 254,356 254,371 C 254,389 250,409 242,429 C 237,441 230,453 224,463 C 220,467 217,461 217,451 C 217,436 214,421 212,406 C 210,391 214,376 217,361 C 220,349 217,336 212,323 C 210,313 216,303 224,315 Z" 
-          fill="url(#landGreen)" stroke="#1A4D22" stroke-width="0.8"/>
-
-    <!-- Iceland -->
-    <path d="M 292,146 C 298,140 306,142 304,150 C 300,154 294,152 292,146 Z" 
-          fill="url(#landGreen)" stroke="#1A4D22" stroke-width="0.5"/>
-
-    <!-- United Kingdom & Ireland -->
-    <path d="M 296,170 C 300,165 306,167 304,175 C 300,179 296,175 296,170 Z" 
-          fill="url(#landGreen)" stroke="#1A4D22" stroke-width="0.5"/>
-
-    <!-- Scandinavia -->
-    <path d="M 328,128 C 333,120 343,123 345,133 C 343,140 338,146 333,143 Z" 
-          fill="url(#landGreen)" stroke="#1A4D22" stroke-width="0.5"/>
-
-    <!-- Europe Mainland -->
-    <path d="M 310,172 C 320,165 330,163 340,161 C 350,165 352,175 348,185 C 344,191 338,197 332,194 C 324,191 316,188 310,172 Z" 
-          fill="url(#landGreen)" stroke="#1A4D22" stroke-width="0.8"/>
-
-    <!-- Africa (Detailed Bulge & Horn) -->
-    <path d="M 312,194 C 325,188 342,190 355,196 C 367,202 375,214 379,228 C 382,243 379,258 375,273 C 371,288 365,303 357,316 C 349,328 339,340 329,348 C 321,354 315,356 309,350 C 303,340 301,326 301,310 C 301,294 305,278 307,263 C 309,248 307,233 307,218 C 307,208 309,200 312,194 Z" 
-          fill="url(#landGreen)" stroke="#1A4D22" stroke-width="0.8"/>
-
-    <!-- Madagascar -->
-    <path d="M 366,328 C 370,323 374,328 372,336 C 368,340 364,336 366,328 Z" 
-          fill="url(#landGreen)" stroke="#1A4D22" stroke-width="0.5"/>
-
-    <!-- Middle East / Arabia -->
-    <path d="M 359,208 C 371,202 381,212 385,224 C 387,236 383,246 377,250 C 369,252 363,244 359,236 Z" 
-          fill="url(#landGreen)" stroke="#1A4D22" stroke-width="0.6"/>
-
-    <!-- India -->
-    <path d="M 388,236 C 398,228 406,238 404,250 C 400,262 394,270 388,266 C 382,258 382,246 388,236 Z" 
-          fill="url(#landGreen)" stroke="#1A4D22" stroke-width="0.6"/>
   </g>
 
-  <!-- Globe Gloss Highlight Overlay -->
   <circle cx="300" cy="280" r="145" fill="url(#globeShine)"/>
-  
-  <!-- Outer Rim Stroke for depth -->
+
   <circle cx="300" cy="280" r="145" fill="none" stroke="#256B8F" stroke-width="2.5" opacity="0.65"/>
   <circle cx="300" cy="280" r="146" fill="none" stroke="#0E3558" stroke-width="1.2" opacity="0.8"/>
 
-  <!-- ============================================ -->
-  <!-- DETAILED COMPASS POINTER (NW - 10 O'Clock)   -->
-  <!-- ============================================ -->
-  <!-- Positioned perfectly at NW angle, overlapping the Globe -->
-  <g transform="translate(205, 185) rotate(-45)" filter="url(#glow)">
-    <!-- Sharp navigational needle -->
+  <g transform="translate(300, 300)">
     <polygon points="0,-52 9,0 0,18 -9,0" fill="url(#gold)"/>
-    <!-- Highlight Half (Left-side reflection) -->
     <polygon points="0,-52 9,0 0,0" fill="#FFF5C3"/>
-    <!-- Shadow Half (Right-side depth) -->
     <polygon points="0,0 -9,0 0,18" fill="#8B6914"/>
-    
-    <!-- Cross pieces -->
+
     <polygon points="-18,0 0,-6 18,0 0,6" fill="url(#gold)"/>
     <polygon points="0,-6 18,0 0,0" fill="#FFF5C3" opacity="0.75"/>
     <polygon points="0,0 -18,0 0,6" fill="#8B6914" opacity="0.85"/>
-    
-    <!-- Pin Hub -->
+
     <circle cx="0" cy="0" r="3.5" fill="#FFFFFF"/>
   </g>
 
-  <!-- ============================================ -->
-  <!-- BOTTOM COMPASS ROSE (6 O'Clock)              -->
-  <!-- ============================================ -->
-  <g transform="translate(300, 395)" filter="url(#glow)">
-    <!-- Base Circular Dial -->
+  <g transform="translate(300, 395)">
     <circle cx="0" cy="0" r="30" fill="#09182C" stroke="url(#gold)" stroke-width="2.8"/>
 
-    <!-- Diagonal Gold Pointers -->
     <g opacity="0.85">
       <g transform="rotate(45)">
         <polygon points="0,-32 5,0 0,32 -5,0" fill="url(#goldLight)"/>
@@ -267,50 +138,29 @@
       </g>
     </g>
 
-    <!-- Main Cardinal Pointers -->
-    <!-- North/South Needle -->
     <polygon points="0,-45 8,0 0,45 -8,0" fill="url(#gold)"/>
     <polygon points="0,-45 8,0 0,0" fill="#FFF5C3"/>
     <polygon points="0,0 -8,0 0,45" fill="#8B6914"/>
-    
-    <!-- East/West Needle -->
+
     <polygon points="-45,0 0,-8 45,0 0,8" fill="url(#gold)"/>
     <polygon points="0,-8 45,0 0,0" fill="#FFF5C3"/>
     <polygon points="0,0 -45,0 0,8" fill="#8B6914"/>
 
-    <!-- Center Hub -->
     <circle cx="0" cy="0" r="4.5" fill="#FFFFFF"/>
     <circle cx="0" cy="0" r="2.2" fill="#D4B058"/>
 
-    <!-- Cardinal 'N' label -->
     <text x="0" y="-53" text-anchor="middle" dominant-baseline="auto"
-          font-family="'Trebuchet MS', 'Arial Black', sans-serif" font-weight="900" font-size="16" 
+          font-family="'Trebuchet MS', 'Arial Black', sans-serif" font-weight="900" font-size="16"
           fill="url(#gold)" letter-spacing="1">N</text>
   </g>
 
-  <!-- ============================================ -->
-  <!-- TYPOGRAPHY - PREMIUM GEOMETRIC & CONCENTRIC  -->
-  <!-- ============================================ -->
-  <!-- Top Text: "WORLD ATLAS" (Centered at R=195, sitting perfectly inside the dark band) -->
-  <text font-family="'Montserrat', 'Inter', 'Trebuchet MS', sans-serif" 
+  <text font-family="'Montserrat', 'Inter', 'Trebuchet MS', sans-serif"
         font-weight="900" font-size="46" fill="#FFFFFF" letter-spacing="6" filter="url(#shadow)">
     <textPath href="#topArc" startOffset="50%" text-anchor="middle">WORLD ATLAS</textPath>
   </text>
 
-  <!-- Bottom Text: "PROJECT" (Centered at R=235, perfectly nested without overlapping anything) -->
-  <text font-family="'Montserrat', 'Inter', 'Trebuchet MS', sans-serif" 
-        font-weight="900" font-size="44" fill="#FFFFFF" letter-spacing="10" filter="url(#shadow)">
-    <textPath href="#bottomArc" startOffset="50%" text-anchor="middle">PROJECT</textPath>
-  </text>
-
-  <!-- Banner Text: "EXPLORING OUR PLANET THROUGH MAPS" (Perfect alignment, no clipping) -->
-  <text font-family="'Montserrat', 'Inter', 'Trebuchet MS', sans-serif" 
+  <text font-family="'Montserrat', 'Inter', 'Trebuchet MS', sans-serif"
         font-weight="700" font-size="14.5" fill="#E8D48B" letter-spacing="3.2" filter="url(#shadow)">
     <textPath href="#bannerArc" startOffset="50%" text-anchor="middle">EXPLORING OUR PLANET THROUGH MAPS</textPath>
   </text>
-
-  <!-- Small Aesthetic Star (Bottom Right) -->
-  <g transform="translate(565, 575)" opacity="0.35">
-    <polygon points="0,-7 2,-2 7,0 2,2 0,7 -2,2 -7,0 -2,-2" fill="url(#gold)"/>
-  </g>
 </svg>

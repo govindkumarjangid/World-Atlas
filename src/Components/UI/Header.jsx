@@ -18,10 +18,10 @@ export const Header = () => {
         } after:absolute after:bottom-0 after:left-0 after:h-[2px] after:bg-cyan-400 after:transition-all after:duration-300 hover:after:w-full`;
 
     return <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-slate-900/75 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-6 sm:px-6 lg:px-8 relative z-50">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-1 sm:px-6 lg:px-8 relative z-50">
             <div>
                 <NavLink to="/" className="font-display text-2xl font-bold tracking-wide text-white">
-                    World Atlas
+                    <img src="logo.svg" alt="logo-image" className="h-16 w-16" />
                 </NavLink>
             </div>
             <nav className="hidden md:block">
