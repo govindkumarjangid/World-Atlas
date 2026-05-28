@@ -53,7 +53,7 @@ export const CountryCard = ({ Country }) => {
                     <motion.button
                         whileHover={{ scale: 1.03, x: 2 }}
                         whileTap={{ scale: 0.97 }}
-                        className="mt-3 inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-slate-800/85 px-4 py-2 text-sm font-semibold text-cyan-200 backdrop-blur-md transition-colors hover:bg-slate-700"
+                        className="mt-3 inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-slate-800/85 px-4 py-2 text-xs font-semibold text-cyan-200 backdrop-blur-md transition-colors hover:bg-slate-700"
                     >
                         Explore {name.common} <ArrowRight size={16} aria-hidden="true" />
                     </motion.button>

@@ -12,14 +12,21 @@ import {
   WonderDetailsSkeleton
 } from "./Components/UI/Skeletons";
 
-const Home = lazy(() => import("./Pages/Home").then(m => ({ default: m.Home || m.default })));
-const About = lazy(() => import("./Pages/About").then(m => ({ default: m.About || m.default })));
-const Country = lazy(() => import("./Pages/Country").then(m => ({ default: m.Country || m.default })));
-const Contact = lazy(() => import("./Pages/Contact").then(m => ({ default: m.Contact || m.default })));
+const Home = lazy(() => import("./Pages/Home")
+  .then(m => ({ default: m.Home || m.default })));
+const About = lazy(() => import("./Pages/About")
+  .then(m => ({ default: m.About || m.default })));
+const Country = lazy(() => import("./Pages/Country")
+  .then(m => ({ default: m.Country || m.default })));
+const Contact = lazy(() => import("./Pages/Contact")
+  .then(m => ({ default: m.Contact || m.default })));
 const MapPage = lazy(() => import("./Pages/MapPage"));
-const WonderDetails = lazy(() => import("./Pages/WonderDetails").then(m => ({ default: m.WonderDetails || m.default })));
-const Errorpage = lazy(() => import("./Components/UI/ErrorPage").then(m => ({ default: m.Errorpage || m.default })));
-const CountryDetails = lazy(() => import("./Components/Layout/CountryDetails").then(m => ({ default: m.CountryDetails || m.default })));
+const WonderDetails = lazy(() => import("./Pages/WonderDetails")
+  .then(m => ({ default: m.WonderDetails || m.default })));
+const Errorpage = lazy(() => import("./Components/UI/ErrorPage")
+  .then(m => ({ default: m.Errorpage || m.default })));
+const CountryDetails = lazy(() => import("./Components/Layout/CountryDetails")
+  .then(m => ({ default: m.CountryDetails || m.default })));
 
 const router = createBrowserRouter([
   {

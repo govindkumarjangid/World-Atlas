@@ -14,9 +14,6 @@ export const Errorpage = () => {
                 transition={{ duration: 0.5, ease: "easeOut" }}
                 className="relative w-full max-w-2xl overflow-hidden rounded-xl border border-white/10 bg-slate-900/60 p-10  backdrop-blur-2xl"
             >
-                {/* Decorative background glow */}
-                <div className="absolute -top-32 left-1/2 h-64 w-64 -translate-x-1/2 rounded-full bg-cyan-500/20 blur-[100px]" />
-
                 <motion.div
                     initial={{ y: -20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}

@@ -23,7 +23,7 @@ export const SearchFilter = (props) => {
     useEffect(() => {
         const timer = setTimeout(() => {
             setSearch(localSearch);
-        }, 400);
+        }, 600);
         return () => clearTimeout(timer);
     }, [localSearch, setSearch]);
 
@@ -50,7 +50,6 @@ export const SearchFilter = (props) => {
         const timer = setTimeout(() => {
             setSearch(localSearch);
         }, 600);
-
         return () => clearTimeout(timer);
     }, [localSearch]);
 
