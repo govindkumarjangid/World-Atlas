@@ -47,7 +47,7 @@ export const HeroSection = () => {
                 initial={{ scale: 0.95, opacity: 0, filter: "blur(4px)" }}
                 animate={{ scale: 1, opacity: 1, filter: "blur(0px)" }}
                 transition={{ duration: 0.4, ease: "easeOut", delay: 0.4 }}
-                src="/world1.png"
+                src="/Hero-image.png"
                 alt="World Atlas Explorer — interactive globe showing countries and continents"
                 width={448}
                 height={448}
