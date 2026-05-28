@@ -10,8 +10,6 @@ export const AppLayout = () => {
 
     useEffect(() => {
         window.scrollTo(0, 0, { behavior: "smooth" });
-
-        // Update Canonical URL dynamically for SEO
         const canonicalUrl = window.location.origin + pathname;
         let link = document.querySelector("link[rel='canonical']");
         if (link) {
@@ -32,7 +30,6 @@ export const AppLayout = () => {
                     background: '#1e293b',
                     color: '#ffffff',
                     border: '1px solid rgba(34, 211, 238, 0.2)'
-
                 }
             }}
         />

@@ -203,27 +203,27 @@ export const CountryDetailsSkeleton = () => (
 
             <div className="relative h-full min-h-[100dvh] w-full border-0 border-white/10 backdrop-blur sm:min-h-0 sm:-2xl sm:border sm:bg-slate-900/90 rounded-xl">
                 <div className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-cyan-950/30 to-slate-900 px-4 pb-8 pt-16 sm:px-8 sm:pt-8 sm:pb-10 sm:-t-2xl">
-                    <div className="grid gap-6 sm:gap-8 lg:grid-cols-[auto_1fr] lg:items-center">
-                        <div className="flex flex-col items-center gap-4 lg:items-start">
-                            <div className="animate-pulse w-full max-w-xs rounded-xl sm:max-w-sm h-48 sm:h-56" />
+                    <div className="grid gap-6 sm:gap-8 lg:grid-cols-[350px_1fr] xl:grid-cols-[400px_1fr] lg:items-center">
+                        <div className="flex flex-col items-center gap-4 lg:items-start w-full">
+                            <div className="animate-pulse w-full rounded-xl h-48 sm:h-56 bg-slate-700/50" />
                             <div className="animate-pulse h-24 w-48 rounded-xl bg-slate-800/30 border border-slate-700/50" />
                         </div>
                         <div className="space-y-4">
                             <div className="flex items-center gap-3">
-                                <div className="animate-pulse bg-slate-800/70 h-14 w-14" />
+                                <div className="animate-pulse bg-slate-800/70 h-14 w-14 rounded-md" />
                                 <div className="space-y-2 flex-1">
                                     <div className="animate-pulse bg-slate-800/70 h-10 w-64 max-w-full rounded-lg" />
-                                    <div className="animate-pulse h-5 w-40 bg-slate-700/40" />
+                                    <div className="animate-pulse h-5 w-40 bg-slate-700/40 rounded-md" />
                                 </div>
                             </div>
                             <div className="flex flex-wrap gap-2">
                                 {Array.from({ length: 2 }).map((_, i) => (
-                                    <div key={i} className="h-8 w-36 rounded-lg bg-slate-800/60 border border-slate-700/40" />
+                                    <div key={i} className="animate-pulse h-8 w-36 rounded-lg bg-slate-800/60 border border-slate-700/40" />
                                 ))}
                             </div>
                             <div className="flex flex-wrap items-center gap-2">
                                 {Array.from({ length: 4 }).map((_, i) => (
-                                    <div key={i} className="h-7 w-24 rounded-full bg-slate-700/50" />
+                                    <div key={i} className="animate-pulse h-7 w-24 rounded-full bg-slate-700/50" />
                                 ))}
                             </div>
                             <div className="flex flex-wrap gap-3 pt-2">

@@ -61,7 +61,7 @@ export const Country = () => {
     setCurrentPageIndex((prev) => prev + 1);
   };
 
-  console.log(totalPages)
+  // console.log(totalPages)
 
 
   useEffect(() => {
