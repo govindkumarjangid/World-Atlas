@@ -44,7 +44,7 @@ export const WonderCard = ({ data, index, imagePosition = 'left' }) => {
             <motion.article
                   initial={{ opacity: 0, y: 50, filter: "blur(5px)" }}
                   whileInView={{ opacity: 1, y: 0, filter: "blur(0px)", transition: { type: 'spring', stiffness: 80, damping: 15, mass: 0.8 } }}
-                  viewport={{ once: false, amount: 0.15 }}
+                  viewport={{ once: true, amount: 0.15 }}
                   whileHover={{ scale: 1.02, y: -2 }}
                   transition={{ type: 'spring', stiffness: 300, damping: 25 }}
                   className={`group overflow-hidden rounded-3xl border border-white/10 bg-slate-900/65 shadow-lg backdrop-blur hover:bg-slate-900/80 transition-colors flex flex-col cursor-pointer ${isImageLeft ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}
@@ -72,7 +72,7 @@ export const WonderCard = ({ data, index, imagePosition = 'left' }) => {
                               variants={containerVariants}
                               initial="hidden"
                               whileInView="show"
-                              viewport={{ once: false, amount: 0.2 }}
+                              viewport={{ once: true, amount: 0.2 }}
                               className='space-y-2 text-sm text-slate-300'>
                               <motion.h3 variants={itemVariants} className='font-display text-base font-semibold text-white'>{title}</motion.h3>
                               <motion.p variants={itemVariants} className="text-xs">{p1}</motion.p>

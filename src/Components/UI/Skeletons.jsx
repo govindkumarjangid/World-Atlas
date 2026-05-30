@@ -24,7 +24,7 @@ export const HeroSectionSkeleton = () => (
 );
 
 export const AboutCardSkeleton = () => (
-    <div className="group relative flex flex-col rounded-xl border border-cyan-500/10 bg-gradient-to-b from-slate-900/80 to-slate-950/90 p-6 shadow-2xl backdrop-blur-md">
+    <div className="group relative flex flex-col rounded-3xl border border-cyan-500/10 bg-gradient-to-b from-slate-900/80 to-slate-950/90 p-6 shadow-2xl backdrop-blur-md">
 
         <div className="animate-pulse  bg-slate-800/70 absolute right-4 top-4 h-10 w-10 rounded-full" />
 
@@ -56,7 +56,7 @@ export const AboutCardSkeleton = () => (
             </div>
         </div>
 
-        <div className="mt-6 -xl border border-white/5 bg-slate-900/50 p-4">
+        <div className="mt-6 rounded-3xl border border-white/5 bg-slate-900/50 p-4">
             <div className="animate-pulse  h-3 w-full  bg-slate-800/40" />
             <div className="animate-pulse  mt-1.5 h-3 w-4/5  bg-slate-800/40" />
             <div className="animate-pulse  mt-1.5 h-3 w-4/5  bg-slate-800/40" />
@@ -65,22 +65,22 @@ export const AboutCardSkeleton = () => (
 );
 
 export const SearchFilterSkeleton = () => (
-    <div className="relative z-20 mb-10 grid gap-6 rounded-xl border border-cyan-500/10 bg-slate-900/60 p-5 shadow-lg backdrop-blur-xl md:grid-cols-[1fr_auto] md:items-center">
-        <div className="animate-pulse h-[46px] w-full rounded-xl bg-slate-800/80" />
+    <div className="relative z-20 mb-10 grid gap-6 rounded-3xl border border-cyan-500/10 bg-slate-900/60 p-5 shadow-lg backdrop-blur-xl md:grid-cols-[1fr_auto] md:items-center">
+        <div className="animate-pulse h-[46px] w-full rounded-2xl bg-slate-800/80" />
 
         <div className="flex flex-wrap items-center justify-center gap-3">
-            <div className="flex gap-2 rounded-xl border border-slate-700/50 p-1 bg-slate-950/30">
-                <div className="animate-pulse h-[42px] w-[88px] rounded-xl bg-slate-800/80" />
+            <div className="flex gap-2 rounded-2xl border border-slate-700/50 p-1 bg-slate-950/30">
+                <div className="animate-pulse h-[42px] w-[88px] rounded-2xl bg-slate-800/80" />
                 <div className="w-px bg-slate-700/50 my-1" />
-                <div className="animate-pulse h-[42px] w-[88px] rounded-xl bg-slate-800/80" />
+                <div className="animate-pulse h-[42px] w-[88px] rounded-2xl bg-slate-800/80" />
             </div>
-            <div className="animate-pulse h-[42px] w-44 rounded-xl bg-slate-800/80" />
+            <div className="animate-pulse h-[42px] w-44 rounded-2xl bg-slate-800/80" />
         </div>
     </div>
 );
 
 export const CountryCardSkeleton = () => (
-    <div className="overflow-hidden rounded-xl border border-white/10 bg-slate-900/65 shadow-lg backdrop-blur">
+    <div className="overflow-hidden rounded-3xl border border-white/10 bg-slate-900/65 shadow-lg backdrop-blur">
         <div className="animate-pulse h-44 w-full outline-none bg-slate-800/80" />
         <div className="space-y-2 p-5 flex flex-col">
             <div className="animate-pulse  bg-slate-800/70 h-7 w-3/4" />
@@ -93,7 +93,7 @@ export const CountryCardSkeleton = () => (
 );
 
 export const WonderCardSkeleton = () => (
-    <div className="group overflow-hidden rounded-xl border border-white/10 bg-slate-900/65 shadow-lg backdrop-blur flex flex-col lg:flex-row">
+    <div className="group overflow-hidden rounded-3xl border border-white/10 bg-slate-900/65 shadow-lg backdrop-blur flex flex-col lg:flex-row">
         <div className="relative overflow-hidden lg:w-1/2 shrink-0">
             <div className="animate-pulse h-full min-h-[16rem] w-full min-w-[10rem] -none bg-slate-800/60" />
         </div>
@@ -119,8 +119,8 @@ export const HomeSkeleton = () => (
         <HeroSectionSkeleton />
         <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
             <div className="my-10 flex items-center flex-col text-center justify-center gap-4">
-                <div className="animate-pulse  bg-slate-800/70h-[50px] w-[50px] " />
-                <div className="animate-pulse  bg-slate-800/70h-10 w-80 max-w-full" />
+                <div className="animate-pulse bg-slate-800/70 h-[50px] w-[50px] rounded-full" />
+                <div className="animate-pulse bg-slate-800/70 h-10 w-80 max-w-full rounded-xl" />
             </div>
             <div className="relative mx-auto mt-16 max-w-7xl">
                 <div className="space-y-16 md:space-y-24 w-full">
@@ -176,7 +176,7 @@ export const CountryPageSkeleton = () => {
             </div>
 
             <div className="mt-14 mb-8 flex w-full max-w-3xl flex-col items-center justify-center gap-4 mx-auto sm:flex-row sm:flex-wrap sm:gap-5">
-                <div className="animate-pulse  bg-slate-800/70h-10 w-10 shrink-0 -full" />
+                <div className="animate-pulse bg-slate-800/70 h-10 w-10 shrink-0 rounded-full" />
                 <div className="flex w-full max-w-full items-center justify-center gap-1.5 overflow-x-auto pb-2 sm:w-auto sm:max-w-none sm:flex-wrap sm:justify-center sm:gap-2 sm:overflow-visible sm:pb-0">
                     <div className="h-10 w-10 rounded-full bg-slate-800/70" />
 
@@ -190,7 +190,7 @@ export const CountryPageSkeleton = () => {
                     <div className="h-10 w-10 rounded-full bg-slate-800/70" />
 
                 </div>
-                <div className="animate-pulse  bg-slate-800/70h-10 w-10 shrink-0 -full" />
+                <div className="animate-pulse bg-slate-800/70 h-10 w-10 shrink-0 rounded-full" />
             </div>
         </section>
     );

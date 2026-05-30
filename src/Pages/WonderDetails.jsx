@@ -25,7 +25,7 @@ export const WonderDetails = () => {
                 <ArrowLeft size={18} /> Back
             </motion.button>
 
-            <div className="relative overflow-hidden sm:rounded-xl border-0 sm:border border-slate-800 bg-slate-900/40 shadow-2xl backdrop-blur-xl min-h-[100dvh] sm:min-h-0">
+            <div className="relative overflow-hidden sm:rounded-3xl border-0 sm:border border-slate-800 bg-slate-900/40 shadow-2xl backdrop-blur-xl min-h-[100dvh] sm:min-h-0">
                 {/* Header Image Section */}
                 <motion.div
                     initial={{ y: 20, opacity: 0 }}
@@ -90,7 +90,7 @@ export const WonderDetails = () => {
                                     {[p1, p2, p3, p4, p5].map((fact, index) => (
                                         <li
                                             key={index}
-                                            className="flex items-start gap-4 rounded-xl border border-slate-700/40 bg-slate-800/30 p-4 transition-colors hover:bg-slate-800/50"
+                                            className="flex items-start gap-4 rounded-3xl border border-slate-700/40 bg-slate-800/30 p-4 transition-colors hover:bg-slate-800/50"
                                         >
                                             <span className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-400">
                                                 {index === 0 ? <Globe size={18} /> :
@@ -113,7 +113,7 @@ export const WonderDetails = () => {
                             className="space-y-6"
                         >
                             {/* Quick Stats Card */}
-                            <div className="rounded-xl border border-cyan-500/20 bg-cyan-950/10 p-6 shadow-inner">
+                            <div className="rounded-3xl border border-cyan-500/20 bg-cyan-950/10 p-6 shadow-inner">
                                 <h3 className="mb-5 text-xl font-medium text-white">Quick Overview</h3>
                                 <div className="space-y-4">
                                     <div className="flex justify-between border-b border-slate-700/50 pb-3">
@@ -132,7 +132,7 @@ export const WonderDetails = () => {
                             </div>
 
                             {/* External Links Card */}
-                            <div className="rounded-xl border border-slate-700/50 bg-slate-800/40 p-6">
+                            <div className="rounded-3xl border border-slate-700/50 bg-slate-800/40 p-6">
                                 <h3 className="mb-4 text-lg font-medium text-white">Learn More</h3>
                                 <p className="mb-6 text-sm leading-relaxed text-slate-400">
                                     Dive deeper into the architectural brilliance, cultural impact, and hidden histories recorded on Wikipedia.

@@ -1,6 +1,6 @@
 import wondersData from '../../API/wondersData.json'
 import { Landmark } from 'lucide-react';
-import { motion, useScroll, useSpring } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { WonderCard } from '../Layout/WonderCard';
 import { useRef, useState, useEffect } from 'react';
 
@@ -18,17 +18,6 @@ const Wonderspage = () => {
             return () => observer.disconnect();
       }, []);
 
-      const { scrollYProgress } = useScroll({
-            target: containerRef,
-            offset: ["start end", "end center"]
-      });
-
-      const scaleY = useSpring(scrollYProgress, {
-            stiffness: 100,
-            damping: 30,
-            restDelta: 0.001
-      });
-
       return (
             <section className='mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8'>
                   <motion.h2
@@ -41,15 +30,10 @@ const Wonderspage = () => {
                   </motion.h2>
 
                   <div ref={containerRef} className='relative mx-auto mt-16 max-w-7xl'>
-                        {/* Timeline Center Line Background */}
+                        {/* Timeline Center Line */}
                         <div
-                              className='absolute md:block hidden left-[17px] top-[42px] w-0.5 -translate-x-1/2 bg-cyan-900/30 md:left-1/2'
-                              style={{ bottom: `${lastCardHeight > 42 ? lastCardHeight - 42 : 0}px` }}
-                        />
-                        {/* Timeline Center Line Animated */}
-                        <motion.div
-                              style={{ scaleY, originY: 0, bottom: `${lastCardHeight > 42 ? lastCardHeight - 42 : 0}px` }}
                               className='absolute md:block hidden left-[17px] top-[42px] z-0 w-0.5 -translate-x-1/2 bg-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.5)] md:left-1/2'
+                              style={{ bottom: `${lastCardHeight > 42 ? lastCardHeight - 42 : 0}px` }}
                         />
                         <div className="space-y-16 md:space-y-24 w-full">
                               {
@@ -62,11 +46,7 @@ const Wonderspage = () => {
                                                       <div className='absolute md:block hidden left-[17px] top-8 z-10 h-5 w-5 -translate-x-1/2 rounded-full border-4 border-slate-950 bg-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.6)] md:left-1/2' />
 
                                                       {/* horizontal line */}
-                                                      <motion.div
-                                                            initial={{ width: 0, opacity: 0 }}
-                                                            whileInView={{ width: '10%', opacity: 1 }}
-                                                            transition={{ duration: 0.9, ease: "easeOut", delay: index * 0.05 }}
-                                                            className={`hidden absolute top-10 w-[6%] h-0.5 bg-cyan-400 md:block ${isEven ? 'right-[50%] md:right-[50%]' : 'left-[50%] md:left-[50%]'}`} />
+                                                      <div className={`hidden absolute top-10 w-[10%] h-0.5 bg-cyan-400 md:block ${isEven ? 'right-[50%] md:right-[50%]' : 'left-[50%] md:left-[50%]'}`} />
 
                                                       {/* Empty space */}
                                                       <div className='hidden w-1/2 md:block' />
