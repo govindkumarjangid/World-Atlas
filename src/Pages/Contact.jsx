@@ -25,24 +25,24 @@ export const Contact = () => {
                 initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
-                className="rounded-xl border border-white/10 bg-slate-900/70 p-5 backdrop-blur"
+                className="rounded-3xl border border-white/10 bg-slate-900/70 p-5 backdrop-blur"
             >
                 <form action={handleFormSubmit} className="space-y-3">
                     <input type="text"
                         required
-                        className="w-full rounded-xl border border-white/15 bg-slate-950/70 px-4 py-2.5 text-sm text-slate-100 outline-none transition placeholder:text-slate-500 focus:border-cyan-300"
+                        className="w-full rounded-2xl border border-white/15 bg-slate-950/70 px-4 py-2.5 text-sm text-slate-100 outline-none transition placeholder:text-slate-500 focus:border-cyan-300"
                         autoComplete="off"
                         placeholder="Enter your name"
                         name="username" />
                     <input type="email"
                         required
-                        className="w-full rounded-xl border border-white/15 bg-slate-950/70 px-4 py-2.5 text-sm text-slate-100 outline-none transition placeholder:text-slate-500 focus:border-cyan-300"
+                        className="w-full rounded-2xl border border-white/15 bg-slate-950/70 px-4 py-2.5 text-sm text-slate-100 outline-none transition placeholder:text-slate-500 focus:border-cyan-300"
                         autoComplete="off"
                         placeholder="Enter your email"
                         name="email" />
 
                     <textarea
-                        className="min-h-40 w-full rounded-xl border border-white/15 bg-slate-950/70 px-4 py-2.5 text-sm text-slate-100 outline-none transition placeholder:text-slate-500 focus:border-cyan-300 resize-none"
+                        className="min-h-40 w-full rounded-2xl border border-white/15 bg-slate-950/70 px-4 py-2.5 text-sm text-slate-100 outline-none transition placeholder:text-slate-500 focus:border-cyan-300 resize-none"
                         rows="10"
                         name="message"
                         required
@@ -64,11 +64,11 @@ export const Contact = () => {
                 initial={{ opacity: 0, x: 50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
-                className="h-[360px] overflow-hidden rounded-xl border border-white/10 bg-slate-900/50 p-2 sm:h-[460px]"
+                className="h-[360px] overflow-hidden rounded-3xl border border-white/10 bg-slate-900/50 p-2 sm:h-[460px]"
             >
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1390.2496655505236!2d75.79508137310131!3d26.870511426090943!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db50ca7161f9b%3A0x59f955fad9e97381!2sPooja%20Kirana!5e1!3m2!1sen!2sin!4v1758907565235!5m2!1sen!2sin"
                     width='100%' height='100%'
-                    className="rounded-xl"
+                    className="rounded-2xl"
                     style={{ border: 0 }} loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
             </motion.div>
         </div>

@@ -123,7 +123,7 @@ export const CountryDetails = () => {
                 variants={pageVariants}
                 initial="hidden"
                 animate="show"
-                className="relative min-h-[100dvh] overflow-hidden bg-slate-900/90 p-0 sm:min-h-0 sm:rounded-2xl sm:bg-transparent"
+                className="relative min-h-[100dvh] overflow-hidden bg-slate-900/90 p-0 sm:min-h-0 sm:rounded-3xl sm:bg-transparent"
             >
                 <MotionNavLink
                     to="/country"
@@ -135,7 +135,7 @@ export const CountryDetails = () => {
                     <ArrowLeft size={18} />
                     Go Back
                 </MotionNavLink>
-                <div className="relative h-full min-h-[100dvh] w-full border-0 border-white/10 backdrop-blur sm:min-h-0 sm:rounded-2xl sm:border sm:bg-slate-900/90">
+                <div className="relative h-full min-h-[100dvh] w-full border-0 border-white/10 backdrop-blur sm:min-h-0 sm:rounded-3xl sm:border sm:bg-slate-900/90">
 
 
                     <motion.div
@@ -150,12 +150,12 @@ export const CountryDetails = () => {
                                 <motion.img
                                     src={country.flags?.svg}
                                     alt={country.flags?.alt || country.name?.official}
-                                    className="w-full max-w-xs rounded-xl border border-slate-700/50 object-cover shadow-2xl sm:max-w-sm"
+                                    className="w-full max-w-xs rounded-3xl border border-slate-700/50 object-cover shadow-2xl sm:max-w-sm"
                                     whileHover={{ scale: 1.02 }}
                                     transition={{ duration: 0.35 }}
                                 />
                                 {country.coatOfArms?.svg && (
-                                    <div className="flex items-center gap-4 rounded-xl border border-slate-700/50 bg-slate-800/30 px-5 py-3">
+                                    <div className="flex items-center gap-4 rounded-3xl border border-slate-700/50 bg-slate-800/30 px-5 py-3">
                                         <motion.img
                                             src={country.coatOfArms.svg}
                                             alt="Coat of Arms"
@@ -184,7 +184,7 @@ export const CountryDetails = () => {
                                 {nativeNameEntries.length > 0 && (
                                     <div className="flex flex-wrap gap-2">
                                         {nativeNameEntries.map(([code, nameObj]) => (
-                                            <span key={code} className="rounded-lg bg-slate-800/60 px-3 py-1.5 text-sm text-slate-300 border border-slate-700/40">
+                                            <span key={code} className="rounded-xl bg-slate-800/60 px-3 py-1.5 text-sm text-slate-300 border border-slate-700/40">
                                                 <span className="font-semibold text-cyan-300 uppercase text-xs mr-2">{code}</span>
                                                 {nameObj.official}
                                                 {nameObj.common !== nameObj.official && (
@@ -220,7 +220,7 @@ export const CountryDetails = () => {
                                             rel="noreferrer"
                                             whileHover={{ y: -3, scale: 1.02 }}
                                             whileTap={{ scale: 0.98 }}
-                                            className="inline-flex items-center gap-2 rounded-xl border border-slate-700/50 bg-slate-800 px-4 py-2.5 text-sm font-semibold text-cyan-300 transition hover:bg-slate-700 hover:text-white"
+                                            className="inline-flex items-center gap-2 rounded-2xl border border-slate-700/50 bg-slate-800 px-4 py-2.5 text-sm font-medium text-cyan-300 transition hover:bg-slate-700 hover:text-white"
                                         >
                                             <Map size={16} /> Google Maps <ExternalLink size={12} />
                                         </motion.a>
@@ -232,7 +232,7 @@ export const CountryDetails = () => {
                                             rel="noreferrer"
                                             whileHover={{ y: -3, scale: 1.02 }}
                                             whileTap={{ scale: 0.98 }}
-                                            className="inline-flex items-center gap-2 rounded-xl border border-slate-700/50 bg-slate-800 px-4 py-2.5 text-sm font-semibold text-emerald-300 transition hover:bg-slate-700 hover:text-white"
+                                            className="inline-flex items-center gap-2 rounded-2xl border border-slate-700/50 bg-slate-800 px-4 py-2.5 text-sm font-medium text-emerald-300 transition hover:bg-slate-700 hover:text-white"
                                         >
                                             <Map size={16} /> OpenStreetMap <ExternalLink size={12} />
                                         </motion.a>
@@ -288,7 +288,7 @@ export const CountryDetails = () => {
                                 </div>
 
                                 {helloAudioList.length > 0 && (
-                                    <div className="rounded-xl border border-slate-700/40 bg-slate-800/30 p-4">
+                                    <div className="rounded-3xl border border-slate-700/40 bg-slate-800/30 p-4">
                                         <p className="mb-3 text-sm font-semibold text-slate-100 flex items-center gap-2">
                                             <Volume2 size={16} className="text-cyan-400" />
                                             Hello Pronunciation
@@ -318,7 +318,7 @@ export const CountryDetails = () => {
                                 {currencyEntries.length > 0 ? (
                                     <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
                                         {currencyEntries.map(([code, cur]) => (
-                                            <div key={code} className="flex items-center gap-3 rounded-xl border border-slate-700/40 bg-slate-800/30 p-4">
+                                            <div key={code} className="flex items-center gap-3 rounded-3xl border border-slate-700/40 bg-slate-800/30 p-4">
                                                 <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-500/10 text-lg font-bold text-cyan-300 shrink-0">
                                                     {cur.symbol || code[0]}
                                                 </span>
@@ -406,7 +406,7 @@ export const CountryDetails = () => {
                             <SectionCard icon={BookOpen} title="Alternative Spellings">
                                 <div className="flex flex-wrap gap-2">
                                     {country.altSpellings?.map((spelling, idx) => (
-                                        <span key={idx} className="rounded-lg border border-slate-700/40 bg-slate-800/30 px-3 py-1.5 text-sm text-slate-200">
+                                        <span key={idx} className="rounded-xl border border-slate-700/40 bg-slate-800/30 px-3 py-1.5 text-sm text-slate-200">
                                             {spelling}
                                         </span>
                                     )) || <p className="text-sm text-slate-400">N/A</p>}
@@ -443,7 +443,7 @@ export const CountryDetails = () => {
                                                     initial={{ opacity: 0, y: 10 }}
                                                     animate={{ opacity: 1, y: 0 }}
                                                     transition={{ duration: 0.3 }}
-                                                    className="rounded-xl border border-slate-700/30 bg-slate-800/20 p-3 transition-colors hover:bg-slate-800/40"
+                                                    className="rounded-3xl border border-slate-700/30 bg-slate-800/20 p-4 transition-colors hover:bg-slate-800/40"
                                                 >
                                                     <p className="text-xs font-bold uppercase tracking-wider text-cyan-400 mb-1">
                                                         {LANG_CODE_MAP[code] || code}

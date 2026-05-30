@@ -21,7 +21,7 @@ export const AboutCard = ({ data }) => {
             variants={cardVariants}
             whileHover={{ y: -6, scale: 1.02 }}
             transition={{ type: "spring", stiffness: 260, damping: 20 }}
-            className="group relative flex flex-col rounded-xl border border-cyan-500/20 bg-gradient-to-b from-slate-900/80 to-slate-950/90 p-6 shadow-2xl backdrop-blur-md hover:border-cyan-400/30 cursor-pointer"
+            className="group relative flex flex-col rounded-3xl border border-cyan-500/20 bg-gradient-to-b from-slate-900/80 to-slate-950/90 p-6 shadow-2xl backdrop-blur-md hover:border-cyan-400/30 cursor-pointer"
         >
             <div className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full border border-cyan-400/30 bg-cyan-950/50 font-display font-bold text-cyan-300 shadow-inner">
                 #{id}
@@ -58,7 +58,7 @@ export const AboutCard = ({ data }) => {
                 </div>
             </div>
 
-            <div className="mt-6 rounded-xl border border-white/5 bg-slate-900/50 p-4">
+            <div className="mt-6 rounded-3xl border border-white/5 bg-slate-900/50 p-4">
                 <p className="text-xs italic leading-relaxed text-slate-400">"{interestingFact}"</p>
             </div>
         </motion.article>

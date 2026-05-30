@@ -189,11 +189,11 @@ const GlobeComponent = () => {
 
     return (
         <section className="w-full py-0 sm:py-3 max-w-7xl mx-auto px-3 pt-4 sm:px-4 lg:px-6">
-            <div className="relative h-[calc(100vh-7rem)] min-h-[540px] w-full overflow-hidden border border-white/10 bg-slate-900/70 shadow-2xl rounded-xl">
+            <div className="relative h-[calc(100vh-7rem)] min-h-[540px] w-full overflow-hidden border border-white/10 bg-slate-900/70 shadow-2xl rounded-3xl">
                 <div ref={globeRef} className="h-full w-full" />
 
                 <div className="pointer-events-none absolute top-3 left-3 right-3 z-20 flex items-start justify-between gap-3">
-                    <div className="hidden rounded-xl border border-white/10 bg-slate-900/75 px-4 py-2 text-white backdrop-blur-md sm:block">
+                    <div className="hidden rounded-2xl border border-white/10 bg-slate-900/75 px-4 py-2 text-white backdrop-blur-md sm:block">
                         <p className="flex items-center gap-2 font-display text-lg font-bold">
                             <Globe2 size={18} className="text-cyan-300" /> Interactive 3D Earth
                         </p>
@@ -202,7 +202,7 @@ const GlobeComponent = () => {
                     <button
                         type="button"
                         onClick={() => setIsHd((prev) => !prev)}
-                        className="pointer-events-auto rounded-xl border border-cyan-300/30 bg-slate-900/75 px-4 py-2 text-sm font-semibold text-cyan-200 backdrop-blur-md transition hover:bg-cyan-400/20"
+                        className="pointer-events-auto rounded-2xl border border-cyan-300/30 bg-slate-900/75 px-4 py-2 text-sm font-semibold text-cyan-200 backdrop-blur-md transition hover:bg-cyan-400/20"
                     >
                         {isHd ? "Night View" : "HD Day View"}
                     </button>
@@ -221,7 +221,7 @@ const GlobeComponent = () => {
                             animate={{ opacity: 1, scale: 1, y: 0 }}
                             exit={{ opacity: 0, scale: 0.95, y: 40 }}
                             transition={{ type: "spring", stiffness: 300, damping: 25 }}
-                            className="absolute right-3 bottom-3 left-3 z-20 max-h-[62vh] overflow-y-auto rounded-xl border border-white/15 bg-slate-900/85 p-4 text-slate-300 shadow-2xl backdrop-blur-md sm:max-h-[58vh] lg:left-auto lg:w-[380px]"
+                            className="absolute right-3 bottom-3 left-3 z-20 max-h-[62vh] no-scrollbar rounded-3xl border border-white/15 bg-slate-900/85 p-4 text-slate-300 shadow-2xl backdrop-blur-md sm:max-h-[58vh] lg:left-auto lg:w-[320px]"
                         >
                             <div className="mb-3 flex items-center justify-between">
                                 <h3 className="font-display text-lg font-semibold text-white">Location Details</h3>
@@ -246,13 +246,13 @@ const GlobeComponent = () => {
                                 <p><span className="font-semibold text-slate-100">Population:</span> {selectedInfo.nearestCountry?.population?.toLocaleString() || "N/A"}</p>
                                 <p><span className="font-semibold text-slate-100">Languages:</span> {languageText}</p>
                                 <p><span className="font-semibold text-slate-100">Timezones:</span> {timezoneText}</p>
-                                {selectedInfo.nearestCountry?.flags?.png && (
+                                {/* {selectedInfo.nearestCountry?.flags?.png && (
                                     <img
                                         src={selectedInfo.nearestCountry.flags.png}
                                         alt={selectedInfo.nearestCountry.flags.alt || selectedInfo.nearestCountry.name?.common}
-                                        className="mt-3 h-[80%] w-[80%] rounded-xl border border-slate-700/50 object-cover"
+                                        className="mt-3 h-[80%] w-[80%] rounded-3xl border border-slate-700/50 object-cover"
                                     />
-                                )}
+                                )} */}
                             </div>
                         </motion.aside>
                     )}

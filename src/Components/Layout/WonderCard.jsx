@@ -47,7 +47,7 @@ export const WonderCard = ({ data, index, imagePosition = 'left' }) => {
                   viewport={{ once: false, amount: 0.15 }}
                   whileHover={{ scale: 1.02, y: -2 }}
                   transition={{ type: 'spring', stiffness: 300, damping: 25 }}
-                  className={`group overflow-hidden rounded-xl border border-white/10 bg-slate-900/65 shadow-lg backdrop-blur hover:bg-slate-900/80 transition-colors flex flex-col cursor-pointer ${isImageLeft ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}
+                  className={`group overflow-hidden rounded-3xl border border-white/10 bg-slate-900/65 shadow-lg backdrop-blur hover:bg-slate-900/80 transition-colors flex flex-col cursor-pointer ${isImageLeft ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}
             >
                   <div className='relative overflow-hidden lg:w-1/2 shrink-0'>
                         <motion.img

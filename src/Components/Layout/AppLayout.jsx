@@ -29,7 +29,9 @@ export const AppLayout = () => {
                 style: {
                     background: '#1e293b',
                     color: '#ffffff',
-                    border: '1px solid rgba(34, 211, 238, 0.2)'
+                    border: '1px solid rgba(34, 211, 238, 0.2)',
+                    fontSize: '12px',
+                    borderRadius: '12px'
                 }
             }}
         />

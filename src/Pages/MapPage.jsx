@@ -21,13 +21,13 @@ const MapPage = () => {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-                    className="relative h-[80vh] min-h-[280px] w-full overflow-hidden rounded-xl border border-white/10 bg-slate-900/60 p-2 shadow-2xl backdrop-blur-md sm:h-[50vh] lg:h-[90vh] mb-10"
+                    className="relative h-[80vh] min-h-[280px] w-full overflow-hidden rounded-3xl border border-white/10 bg-slate-900/60 p-2 shadow-2xl backdrop-blur-md sm:h-[50vh] lg:h-[90vh] mb-10"
                 >
                     <iframe
                         src="https://maps.google.com/maps?t=k&q=world&ie=UTF8&iwloc=&output=embed&z=2"
                         width="100%"
                         height="100%"
-                        className="h-full w-full rounded-xl border-none"
+                        className="h-full w-full rounded-3xl border-none"
                         allowFullScreen=""
                         loading="lazy"
                         referrerPolicy="no-referrer-when-downgrade"

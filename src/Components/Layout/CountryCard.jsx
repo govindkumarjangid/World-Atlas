@@ -30,7 +30,7 @@ export const CountryCard = ({ Country }) => {
         variants={cardVariants}
         whileHover={{ y: -6, scale: 1.01 }}
         transition={{ type: "spring", stiffness: 260, damping: 20 }}
-        className="overflow-hidden rounded-xl border border-white/10 bg-slate-900/65 shadow-lg backdrop-blur will-change-transform group"
+        className="overflow-hidden rounded-3xl border border-white/10 bg-slate-900/65 shadow-lg backdrop-blur will-change-transform group"
     >
         <img
             src={flags.svg || flags.png}

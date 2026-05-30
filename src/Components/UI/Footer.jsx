@@ -22,7 +22,7 @@ export const Footer = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true, amount: 0.4 }}
                                 transition={{ delay: index * 0.1, duration: 0.35 }}
-                                className="rounded-xl border border-cyan-300/20 bg-slate-900/60 p-4"
+                                className="rounded-3xl border border-cyan-300/20 bg-slate-900/60 p-4"
                                 key={index}
                             >
                                 <div className="mb-2 inline-flex rounded-xl bg-cyan-400/15 p-2 text-cyan-300">
