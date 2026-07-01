@@ -148,7 +148,7 @@ export const CountryDetails = () => {
                             {/* Flag + Coat of Arms */}
                             <motion.div variants={blockVariants} className="flex flex-col items-center gap-4 lg:items-start">
                                 <motion.img
-                                    src={country.flags?.svg}
+                                    src={country.flags?.svg || country.flags?.png || "https://placehold.co/320x176/0f172a/06b6d4?text=No+Flag"}
                                     alt={country.flags?.alt || country.name?.official}
                                     className="w-full max-w-xs rounded-3xl border border-slate-700/50 object-cover shadow-2xl sm:max-w-sm"
                                     whileHover={{ scale: 1.02 }}

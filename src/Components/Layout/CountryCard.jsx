@@ -33,7 +33,7 @@ export const CountryCard = ({ Country }) => {
         className="overflow-hidden rounded-3xl border border-white/10 bg-slate-900/65 shadow-lg backdrop-blur will-change-transform group"
     >
         <img
-            src={flags.svg || flags.png}
+            src={flags.svg || flags.png || "https://placehold.co/320x176/0f172a/06b6d4?text=No+Flag"}
             alt={flags.alt || name.common}
             width={320}
             height={176}
